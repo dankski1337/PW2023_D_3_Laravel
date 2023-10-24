@@ -54,12 +54,14 @@
                                 <img height="30" src="{{ asset('images/logo.png') }}" alt="logo">
                             </a>
                         </li>
-                        <!-- <li class="nav-item d-lg-none d-md-block d-sm-block">
-                        <a href="{{ url('/landing-page-admin') }}" class="h5 btn btn-light">Home</a>
-
+                         <li class="nav-item d-lg-none d-md-block d-sm-block">
+                        <a href="{{ url('/landing-page-admin') }}" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item d-lg-none d-md-block d-sm-block">
-                            <a href="{{ url('/profile') }}" class="nav-link">Data User</a>
+                            <a href="{{ url('/profile') }}" class="nav-link">Profile Admin</a>
+                        </li>
+                        <li class="nav-item d-lg-none d-md-block d-sm-block">
+                            <a href="{{ url('/dataUser') }}" class="nav-link">Data User</a>
                         </li>
                         <li class="nav-item d-lg-none d-md-block d-sm-block">
                             <a href="{{ url('/dataMobil') }}" class="nav-link">Data Mobil</a>
@@ -69,7 +71,7 @@
                         </li>
                         <li class="nav-item d-lg-none d-md-block d-sm-block">
                             <a href="{{ url('/landing-no-user') }}" class="text-danger fw-bold">Log Out</a>
-                        </li> -->
+                        </li>
                     </ul>
                     <ul class="navbar-nav d-none d-md-flex">
                         {{-- <li class="nav-item">
@@ -87,7 +89,7 @@
         </nav>
 
         {{-- confirm logout --}}
-        <div class="modal fade bd-example-modal-sm" id="confirmation" tabindex="0" role="dialog"
+        {{-- <div class="modal fade bd-example-modal-sm" id="confirmation" tabindex="0" role="dialog"
             aria-labelledby="confirmation" aria-hidden="true">
             <div class="modal-dialog modal-sm" role="document">
                 <div class="modal-content">
@@ -102,7 +104,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
             id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
@@ -122,13 +124,14 @@
                 <div class="container-fluid">
                     <div class="row gx-2 gy-2 mb-auto">
                         <a href="{{ url('/landing-page-admin') }}" class="h5 btn btn-light">Home</a>
-                        <a href="{{ url('/profileAdmin') }}" class="h5 btn btn-light">Data User</a>
+                        <a href="{{ url('/profileAdmin') }}" class="h5 btn btn-light">Profile</a>
+                        <a href="{{ url('/dataUser') }}" class="h5 btn btn-light">Data User</a>
                         <a href="{{ url('/dataMobil') }}" class="h5 btn btn-light">Data Mobil</a>
                         <a href="{{ url('/dataTransaksi') }}" class="h5 btn btn-light">Data Transaksi</a>
                     </div>
                     <div class="justify-content-end d-flex">
-                        <a href=""
-                            class="btn btn-danger align-items-end d-flex position-absolute bottom-0 mb-2" data-bs-toggle="modal" data-bs-target="#confirmation">Log
+                        <a href="{{ url('/landing-no-user') }}"
+                            class="btn btn-danger align-items-end d-flex position-absolute bottom-0 mb-2">Log
                             Out</a>
                     </div>
                 </div>

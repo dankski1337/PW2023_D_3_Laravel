@@ -27,25 +27,26 @@
             text-decoration: none;
             color: black;
         }
-        *{
+
+        * {
             font-family: 'Poppins', sans-serif;
         }
-        .app{
+
+        .app {
             background-color: #F8F7FC;
             height: 100vh;
         }
-        .navbar{
-            background-color : #22668D;
-        }
-        .nav-item a, .navbar-nav span{
-            color: white;
+
+        footer {
+            position: relative;
+            z-index: 1;
         }
     </style>
 </head>
 
 <body>
     <div class="app">
-        <nav class="navbar sticky-top navbar-expand-lg text-light">
+        <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white">
             <div class="container-fluid px-3">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
@@ -56,7 +57,8 @@
                     <img height="30" src="{{ asset('images/logo.png') }}" alt="logo">
                 </span>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <a class="navbar-brand d-none d-lg-block d-md-none" href="{{ url('/') }}"><img height="30" src="{{ asset('images/logo.png') }}" alt="logo"></a>
+                    <a class="navbar-brand d-none d-lg-block d-md-none" href="{{ url('/') }}"><img height="30"
+                            src="{{ asset('images/logo.png') }}" alt="logo"></a>
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/') }}">Home</a>
@@ -86,7 +88,7 @@
                         </li>
                         <span class="nav-link d-none d-lg-block">/</span>
                         <li class="nav-item">
-                            <li class="nav-item">
+                        <li class="nav-item">
                             <a href="{{ url('/register') }}" class="nav-link fw-semibold">Register</a>
                         </li>
                         </li>
@@ -94,6 +96,8 @@
                 </div>
             </div>
         </nav>
+
+
 
         <div class="container">
             @yield('content')
@@ -106,16 +110,24 @@
                     <div class="row pt-5 pb-5" style="max-width: 100%;">
                         <div class="col-lg-6" style="padding-left: 100px;">
                             <h5><strong>About Us</strong></h5>
-                            <p>Selamat datang di JogjaCar, penyedia layanan rental kendaraan yang Anda percayai untuk memenuhi kebutuhan perjalanan Anda di Yogyakarta. JogjaCar merupakan perusahaan rental kendaraan yang berdedikasi dalam memberikan pengalaman berkendara yang aman, nyaman, dan terpercaya bagi pelanggan kami. Dengan armada kendaraan yang terawat baik dan beragam pilihan mulai dari mobil keluarga hingga kendaraan mewah, kami berkomitmen untuk menyediakan layanan berkualitas tinggi dan kepuasan pelanggan yang prima. Dengan JogjaCar, Anda dapat menjelajahi pesona Yogyakarta dengan percaya diri dan kenyamanan, menjadikan setiap perjalanan Anda sebagai pengalaman yang berkesan dan menyenangkan.</p>
+                            <p>Selamat datang di JogjaCar, penyedia layanan rental kendaraan yang Anda percayai untuk
+                                memenuhi kebutuhan perjalanan Anda di Yogyakarta. JogjaCar merupakan perusahaan rental
+                                kendaraan yang berdedikasi dalam memberikan pengalaman berkendara yang aman, nyaman, dan
+                                terpercaya bagi pelanggan kami. Dengan armada kendaraan yang terawat baik dan beragam
+                                pilihan mulai dari mobil keluarga hingga kendaraan mewah, kami berkomitmen untuk
+                                menyediakan layanan berkualitas tinggi dan kepuasan pelanggan yang prima. Dengan
+                                JogjaCar, Anda dapat menjelajahi pesona Yogyakarta dengan percaya diri dan kenyamanan,
+                                menjadikan setiap perjalanan Anda sebagai pengalaman yang berkesan dan menyenangkan.</p>
                         </div>
                         <div class="col-lg 6" style="padding-left: 100px;">
                             <p><strong>Layanan Pengaduan Konsumen</strong></p>
                             <p><strong>PT JogjaTrans</strong></p>
-                            <kaifuku@halodoc.com>l. Dirgantara I No.15, Kabupaten Sleman, Atma Jaya Yogyakarta, Yogyakarta</p>
+                            <kaifuku@halodoc.com>l. Dirgantara I No.15, Kabupaten Sleman, Atma Jaya Yogyakarta,
+                                Yogyakarta</p>
                         </div>
                     </div>
                 </div>
-                <div class="container-footer-bottom" style="background-color:#22668D">
+                <div class="container-footer-bottom" style="background-color:#003EB7;">
                     <div class="text-light text-center py-2 container pt-3">
                         <p>&copy; 2023 Jogja Car</p>
                         <p>Kelompok 3 Pemrograman Web D</p>

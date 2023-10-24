@@ -19,12 +19,15 @@
             background-color: #003EB7;
         }
 
-        .container-image img{
-            background-size: cover;
-            object-fit: cover;
+        .container-image img {
+            position: fixed;
+            /* top: 0; */
+            left: 0;
             width: 100%;
-            height: 500px;
-            padding: 0;
+            height: 100vh;
+            object-fit: cover;
+            overflow: hidden;
+            z-index: 0;
         }
 
         .container-item{    
@@ -32,19 +35,23 @@
             justify-content: center;
         }
 
+        .container-detail p {
+            color: #ffffff;
+            text-shadow: 1px 1px 4px #000000a3;
+        }
     </style>
 
     <div class="container-details">
         <div class="row border" style="margin-right: 0;">
             <div class="col-lg-12" style="padding-right: 0;">
                 <div class="container-image">
-                    <img src="{{asset('images/rental-mobil-jambi.jpg')}}" alt="">
+                    <img src="{{ asset('images/bg-rental.jpg') }}"alt="">
                 </div>
             </div>
         </div>
         <div class="row" style=" margin-bottom: 50px;">
             <div class="col-lg-12">
-                <div class="container-detail text-center mx-auto my-5" style="max-width: 70%; ">
+                <div class="container-detail text-center mx-auto my-5" style="max-width: 70%; position: relative; z-index: 2;">
                     <p class="text" style="font-size: 40px;"><strong>Selamat Datang di JogjaCar</strong></p>
                     <p>JogjaCar adalah penyedia layanan car rental terkemuka yang berlokasi di Yogyakarta, Indonesia. Dengan komitmen untuk memberikan pengalaman perjalanan yang tak terlupakan, JogjaCar telah menjadi pilihan utama bagi pelanggan yang mencari kendaraan berkualitas dan layanan yang handal.</p>
                 </div>

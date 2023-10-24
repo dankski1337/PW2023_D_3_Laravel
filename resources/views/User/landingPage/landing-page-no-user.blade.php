@@ -1,14 +1,16 @@
 @extends('User.dashboard.user-dashboard-no-user')
 
 @section('content1')
+
     <head>
         <title>JogjaCar - Home</title>
     </head>
 
     <style>
-        .container-details{
+        .container-details {
             align-items: center;
             justify-content: center;
+            z-index: 2;
         }
 
         .container-content {
@@ -16,44 +18,55 @@
             background-size: cover;
             background-position: center;
         }
-        
-        .header{
+
+        .header {
             font-family: 'Poppins', sans-serif;
         }
 
         .tombol {
             text-align: center;
-            background-color: #22668D;
+            background-color: #001A4E;
             pointer-events: none;
         }
 
-        .container-image img{
-            background-size: cover;
-            object-fit: cover;
+        .container-image img {
+            position: fixed;
+            /* top: 0; */
+            left: 0;
             width: 100%;
-            height: 500px;
-            padding: 0;
+            height: 100vh;
+            object-fit: cover;
+            overflow: hidden;
+            z-index: 0;
         }
 
-        .container-item{    
+        .container-item {
             text-align: center;
             justify-content: center;
+        }
+
+        .container-detail p {
+            color: #ffffff;
+            text-shadow: 1px 1px 4px #000000a3;
         }
     </style>
 
     <div class="container-details">
-    <div class="row border" style="margin-right: 0;">
+        <div class="row border" style="margin-right: 0;">
             <div class="col-lg-12" style="padding-right: 0;">
                 <div class="container-image">
-                    <img src="{{asset('images/rental-mobil-jambi.jpg')}}" alt="">
+                    <img src="{{ asset('images/bg-rental.jpg') }}"alt="">
                 </div>
             </div>
         </div>
         <div class="row" style=" margin-bottom: 50px;">
             <div class="col-lg-12">
-                <div class="container-detail text-center mx-auto my-5" style="max-width: 70%; ">
+                <div class="container-detail text-center mx-auto my-5"
+                    style="max-width: 70%; position: relative; z-index: 2;">
                     <p class="text" style="font-size: 40px;"><strong>Selamat Datang di JogjaCar</strong></p>
-                    <p>JogjaCar adalah penyedia layanan car rental terkemuka yang berlokasi di Yogyakarta, Indonesia. Dengan komitmen untuk memberikan pengalaman perjalanan yang tak terlupakan, JogjaCar telah menjadi pilihan utama bagi pelanggan yang mencari kendaraan berkualitas dan layanan yang handal.</p>
+                    <p>JogjaCar adalah penyedia layanan car rental terkemuka yang berlokasi di Yogyakarta, Indonesia. Dengan
+                        komitmen untuk memberikan pengalaman perjalanan yang tak terlupakan, JogjaCar telah menjadi pilihan
+                        utama bagi pelanggan yang mencari kendaraan berkualitas dan layanan yang handal.</p>
                 </div>
             </div>
         </div>
@@ -98,9 +111,8 @@
                     </div>
 
                     <div class="col-lg-2 d-flex col-md col-sm">
-                        <button
-                            class="tombol btn btn-primary my-2 w-100 d-flex justify-content-center align-items-center">
-                            <h5 class="d-lg-block fw-bold">Log In untuk Melanjutkan</h5>
+                        <button class="tombol btn btn-primary my-2 w-100 d-flex justify-content-center align-items-center">
+                            <h5 class="d-lg-block fw-bold opacity-50">Log In untuk Melanjutkan</h5>
                         </button>
                     </div>
                 </div>

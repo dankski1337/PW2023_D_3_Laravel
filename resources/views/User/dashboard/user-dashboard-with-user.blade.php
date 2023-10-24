@@ -40,9 +40,6 @@
         .modal-header {
             background-color: #003EB7;
         }
-        .nav-item a{
-            color: white;
-        }
         *{
             font-family: 'Poppins', sans-serif;
         }
@@ -50,15 +47,17 @@
             background-color: #F8F7FC;
             height: 100vh;
         }
-        .navbar{
-            background-color : #22668D;
+        
+        footer {
+            position: relative;
+            z-index: 1;
         }
     </style>
 </head>
 
 <body>
     <div class="app">
-        <nav class="navbar sticky-top navbar-expand-lg">
+        <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white">
             <div class="container-fluid px-3">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
@@ -183,7 +182,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="container-footer-bottom" style="background-color:#22668D">
+                <div class="container-footer-bottom" style="background-color:#003EB7">
                     <div class="text-light text-center py-2 container pt-3">
                         <p>&copy; 2023 Jogja Car</p>
                         <p>Kelompok 3 Pemrograman Web D</p>

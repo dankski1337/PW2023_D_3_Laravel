@@ -18,7 +18,7 @@ Route::get('/input-ulasan', function () {
 });
 
 Route::get('/ulasan-with-user', function () {
-    return view('User.ulasan.ulasan-with-user',[
+    return view('User.ulasan.ulasan-with-user', [
         'ulasan' => [
             [
                 "id" => "1",
@@ -46,7 +46,7 @@ Route::get('/ulasan-with-user', function () {
 });
 
 Route::get('/ulasan-no-user', function () {
-    return view('User.ulasan.ulasan-no-user',[
+    return view('User.ulasan.ulasan-no-user', [
         'ulasan' => [
             [
                 "id" => "1",
@@ -141,6 +141,66 @@ Route::get('/profileAdmin', function () {
     ]);
 });
 
+Route::get('/inputUser', function () {
+    return view('Admin.dataUser.input-user');
+});
+
+Route::get('/editUser', function () {
+    return view('Admin.dataUser.edit-user', [
+        'user' => [
+            "nama" => "Simon Agis",
+            "email" => "user@gmail.com",
+            "username" => "User1",
+            "alamat" => "Jl. Kaliurang KM 14,5",
+            "no-telp" => "081234567890",
+            "password" => "user1",
+        ],
+    ]);
+});
+
+
+Route::get('/dataUser', function () {
+    return view('Admin.dataUser.data-user', [
+        'data_user' => [
+            [
+                "id" => "1",
+                "nama" => "Simon Agis",
+                "email" => "user@gmail.com",
+                "username" => "User1",
+                "alamat" => "Jl. Kaliurang KM 14,5",
+                "no_telp" => "081234567890",
+            ],
+            [
+                "id" => "2",
+                "nama" => "Simon Agis",
+                "email" => "user@gmail.com",
+                "username" => "User1",
+                "alamat" => "Jl. Kaliurang KM 14,5",
+                "no_telp" => "081234567890",
+            ]
+        ]
+    ]);
+});
+
+Route::get('/inputMobil', function () {
+    return view('Admin.dataMobil.input-mobil');
+});
+
+Route::get('/editMobil', function () {
+    return view('Admin.dataMobil.edit-mobil', [
+        'mobil' => [
+            "model" => "Toyota Avanza",
+            "bahan_bakar" => "Bensin",
+            "transmisi" => "Automatic",
+            "jumlah_kursi" => 4,
+            "tahun_produksi" => 2018,
+            "warna" => "Hitam",
+            "tarif" => 250000,
+            "status" => "Ready",
+        ],
+    ]);
+});
+
 Route::get('/dataMobil', function () {
     return view('Admin.dataMobil.data-mobil', [
         'data_mobil' => [
@@ -152,7 +212,7 @@ Route::get('/dataMobil', function () {
                 "tahun_produksi" => 2018,
                 "warna" => "Hitam",
                 "tarif" => "Rp250000/hari",
-                "status" => "Sudah Dibayar",
+                "status" => "Ready",
             ],
             [
                 "id" => "2",
@@ -162,7 +222,49 @@ Route::get('/dataMobil', function () {
                 "tahun_produksi" => 2018,
                 "warna" => "Hitam",
                 "tarif" => "Rp250000/hari",
-                "status" => "Belum Dibayar",
+                "status" => "Tidak Ready",
+            ]
+        ]
+    ]);
+});
+
+Route::get('/editTransaksi', function () {
+    return view('Admin.dataTransaksi.edit-transaksi', [
+        'user' => [
+            [
+                "username" => "User1",
+            ],
+            [
+                "username" => "User2",
+            ]
+        ],
+        'mobil' => [
+            [
+                "model" => "Toyota Avanza - Hitam",
+            ],
+            [
+                "model" => "Toyota Avanza - Hitam",
+            ]
+        ]
+    ]);
+});
+
+Route::get('/inputTransaksi', function () {
+    return view('Admin.dataTransaksi.input-transaksi', [
+        'user' => [
+            [
+                "username" => "User1",
+            ],
+            [
+                "username" => "User2",
+            ]
+        ],
+        'mobil' => [
+            [
+                "model" => "Toyota Avanza - Hitam",
+            ],
+            [
+                "model" => "Toyota Avanza - Hitam",
             ]
         ]
     ]);
@@ -204,22 +306,50 @@ Route::get('/register', function () {
 });
 
 Route::get('/login', function () {
-    return view('User.login.login',[
+    return view('User.login.login', [
         'user' => [
-            "username" => "user1",
-            "password" => "user1",
+            "username" => "User1",
+            "password" => "User1",
             "role" => "user",
         ],
         'admin' => [
-            "username" => "admin1",
-            "password" => "admin1",
+            "username" => "Admin1",
+            "password" => "Admin1",
             "role" => "admin",
         ],
     ]);
 });
 
 Route::get('/landing-page-admin', function () {
-    return view('Admin.landingPage.landing-page-admin');
+    return view(
+        'Admin.landingPage.landing-page-admin',
+        [
+            'user' => [
+                [
+                    "nama" => "Simon Agis",
+                ],
+                [
+                    "nama" => "Simon Agis",
+                ]
+            ],
+            "mobil" => [
+                [
+                    "nama" => "Toyota Avanza",
+                ],
+                [
+                    "nama" => "Toyota Avanza",
+                ]
+            ],
+            "transaksi" => [
+                [
+                    "nama" => "Toyota Avanza",
+                ],
+                [
+                    "nama" => "Toyota Avanza",
+                ]
+            ],
+        ]
+    );
 });
 
 Route::get('/landing-with-user', function () {
@@ -235,7 +365,7 @@ Route::get('/landing-no-user', function () {
 });
 
 Route::get('/list-mobil-select', function () {
-    return view('User/mobil/list-mobil-select',[
+    return view('User/mobil/list-mobil-select', [
         'mobil' => [
             [
                 "model" => "Toyota Avanza",
@@ -285,7 +415,7 @@ Route::get('/list-mobil-select', function () {
     ]);
 });
 Route::get('/list-mobil-no-user', function () {
-    return view('User/mobil/list-mobil-no-user',[
+    return view('User/mobil/list-mobil-no-user', [
         'mobil' => [
             [
                 "model" => "Toyota Avanza",
@@ -336,7 +466,7 @@ Route::get('/list-mobil-no-user', function () {
 });
 
 Route::get('/list-mobil-with-user', function () {
-    return view('User/mobil/list-mobil-with-user',[
+    return view('User/mobil/list-mobil-with-user', [
         'mobil' => [
             [
                 "model" => "Toyota Avanza",
@@ -396,7 +526,7 @@ Route::get('/home-user', function () {
 
 
 Route::get('/confirm-transaksi', function () {
-    return view('User/transaksi/confirm-transaksi',[
+    return view('User/transaksi/confirm-transaksi', [
         'transaksi' => [
             "id" => "1",
             "lokasi" => "Kampus 3 Bonaventura UAJY",

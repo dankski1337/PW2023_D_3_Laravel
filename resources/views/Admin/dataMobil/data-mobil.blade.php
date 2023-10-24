@@ -10,9 +10,14 @@
 
     <div class="container-details">
         <h1 class="fw-bold my-4 text-center">Data Mobil</h1>
+        <div class="col d-flex">
+            <div class="me-auto">
+                <a href="{{ url('/inputMobil') }}" class="btn btn-primary">Tambah Mobil</a>
+            </div>
+        </div>
         <div class="container mt-4">
             <div class="row justify-content-center">
-                <div class="col-lg-9 col-md-20 col-sm-flex mt-2">
+                <div class="col-lg-flex col-md-flex col-sm-flex mt-2">
                     <div class="card">
                         <table class="table table-bordered">
                             <thead>
@@ -38,6 +43,16 @@
                                         <td>{{ $mobil['warna'] }}</td>
                                         <td>{{ $mobil['tarif'] }}</td>
                                         <td>{{ $mobil['status'] }}</td>
+                                        <td>
+                                            <div class="row">
+                                                <div class="col text-center">
+                                                    <a href="{{ url('/editMobil') }}" class="btn btn-primary px-2">Edit</a>
+                                                </div>
+                                                <div class="col text-center">
+                                                    <a href="{{ url('/dataMobil') }}" class="btn btn-danger px-2">Delete</a>
+                                                </div>
+                                            </div>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

@@ -36,7 +36,9 @@
                                         style="text-decoration: underline;">Belum punya akun?</a>
                                 </div>
                                 <div class="row justify-content-center mt-4">
-                                    <a href=""type="submit" class="btn btn-primary px-4 fw-bold">Log In</a>
+                                    <a href=""
+                                    id="loginButton" class="btn btn-primary px-4 fw-bold">Log
+                                        In</a>
                                 </div>
                             </form>
                         </div>
@@ -46,4 +48,21 @@
         </div>
 
     </div>
+
+    <script>
+        var loginUsername = document.getElementById('loginUsername');
+        var loginPassword = document.getElementById('loginPassword');
+        var loginButton = document.getElementById('loginButton');
+
+        function login() {
+            if (loginUsername.value === 'Admin1' && loginPassword.value === 'Admin1') {
+                loginButton.href = "{{ url('/landing-page-admin') }}";
+            } else if (loginUsername.value === 'User1' && loginPassword.value === 'User1') {
+                loginButton.href = "{{ url('/landing-with-user') }}";
+            }
+            return;
+        }
+
+        loginButton.addEventListener('click', login);
+    </script>
 @endsection
