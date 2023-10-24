@@ -128,6 +128,77 @@ Route::get('/profile', function () {
     ]);
 });
 
+Route::get('/profileAdmin', function () {
+    return view('Admin.profileAdmin.profile', [
+        'admin' => [
+            "nama" => "Simon Agis",
+            "email" => "admin1@gmail.com",
+            "username" => "admin1",
+            "alamat" => "Jl. Dirgantara N0.15",
+            "no-telp" => "089876543212",
+            "password" => "admin1",
+        ],
+    ]);
+});
+
+Route::get('/dataMobil', function () {
+    return view('Admin.dataMobil.data-mobil', [
+        'data_mobil' => [
+            [
+                "id" => "1",
+                "bahan_bakar" => "Bensin",
+                "transmisi" => "Automatic",
+                "jumlah_kursi" => 4,
+                "tahun_produksi" => 2018,
+                "warna" => "Hitam",
+                "tarif" => "Rp250000/hari",
+                "status" => "Sudah Dibayar",
+            ],
+            [
+                "id" => "2",
+                "bahan_bakar" => "Bensin",
+                "transmisi" => "Automatic",
+                "jumlah_kursi" => 4,
+                "tahun_produksi" => 2018,
+                "warna" => "Hitam",
+                "tarif" => "Rp250000/hari",
+                "status" => "Belum Dibayar",
+            ]
+        ]
+    ]);
+});
+
+Route::get('/dataTransaksi', function () {
+    return view('Admin/dataTransaksi/data-transaksi', [
+        'data_transaksi' => [
+            [
+                "id" => "1",
+                "lokasi" => "Kampus 3 Bonaventura UAJY",
+                "tgl_pengambilan" => "11-Oct-2023",
+                "jam_pengambilan" => "10:00",
+                "tgl_pengembalian" => "15-Oct-2023",
+                "jam_pengembalian" => "10:00",
+                "mobil" => "Toyota Avanza - Hitam",
+                "total" => "Rp1,000,000",
+                "status" => "Sudah Dibayar",
+                "deadline" => "-",
+            ],
+            [
+                "id" => "2",
+                "lokasi" => "Kampus 3 Bonaventura UAJY",
+                "tgl_pengambilan" => "16-Oct-2023",
+                "jam_pengambilan" => "10:00",
+                "tgl_pengembalian" => "20-Oct-2023",
+                "jam_pengembalian" => "10:00",
+                "mobil" => "Toyota Avanza - Hitam",
+                "total" => "Rp1,000,000",
+                "status" => "Belum Dibayar",
+                "deadline" => "23-Oct-2023 10:00",
+            ]
+        ]
+    ]);
+});
+
 Route::get('/register', function () {
     return view('User.register.register');
 });
@@ -147,11 +218,19 @@ Route::get('/login', function () {
     ]);
 });
 
+Route::get('/landing-page-admin', function () {
+    return view('Admin.landingPage.landing-page-admin');
+});
+
 Route::get('/landing-with-user', function () {
     return view('User.landingPage.landing-page-with-user');
 });
 
 Route::get('/', function () {
+    return view('User.landingPage.landing-page-no-user');
+});
+
+Route::get('/landing-no-user', function () {
     return view('User.landingPage.landing-page-no-user');
 });
 
