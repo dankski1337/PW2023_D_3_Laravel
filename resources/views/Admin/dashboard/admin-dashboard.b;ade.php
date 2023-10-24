@@ -54,25 +54,26 @@
                                 <img height="30" src="{{ asset('images/logo.png') }}" alt="logo">
                             </a>
                         </li>
-                        <li class="nav-item d-lg-none d-md-block d-sm-block">
-                            <a href="#" class="nav-link">Home</a>
+                        <!-- <li class="nav-item d-lg-none d-md-block d-sm-block">
+                        <a href="{{ url('/landing-page-admin') }}" class="h5 btn btn-light">Home</a>
+
                         </li>
                         <li class="nav-item d-lg-none d-md-block d-sm-block">
-                            <a href="#" class="nav-link">Data User</a>
+                            <a href="{{ url('/profile') }}" class="nav-link">Data User</a>
                         </li>
                         <li class="nav-item d-lg-none d-md-block d-sm-block">
-                            <a href="#" class="nav-link">Data Mobil</a>
+                            <a href="{{ url('/dataMobil') }}" class="nav-link">Data Mobil</a>
                         </li>
                         <li class="nav-item d-lg-none d-md-block d-sm-block">
-                            <a href="#" class="nav-link">Data Transaksi</a>
+                            <a href="{{ url('/dataTransaksi') }}" class="nav-link">Data Transaksi</a>
                         </li>
                         <li class="nav-item d-lg-none d-md-block d-sm-block">
-                            <a href="#" class="text-danger fw-bold">Log Out</a>
-                        </li>
+                            <a href="{{ url('/landing-no-user') }}" class="text-danger fw-bold">Log Out</a>
+                        </li> -->
                     </ul>
                     <ul class="navbar-nav d-none d-md-flex">
                         {{-- <li class="nav-item">
-                            <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmation">Log Out</a>
+                            <a href="" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmation">Log Out</a>
                         </li> --}}
                         <li class="nav-item d-sm-none d-md-none d-lg-block">
                             <a href="#" class="nav-link" role="button" data-bs-toggle="offcanvas"
@@ -120,10 +121,10 @@
             <div class="offcanvas-body">
                 <div class="container-fluid">
                     <div class="row gx-2 gy-2 mb-auto">
-                        <a href="" class="h5 btn btn-light">Home</a>
-                        <a href="" class="h5 btn btn-light">Data User</a>
-                        <a href="" class="h5 btn btn-light">Data Mobil</a>
-                        <a href="" class="h5 btn btn-light">Data Transaksi</a>
+                        <a href="{{ url('/landing-page-admin') }}" class="h5 btn btn-light">Home</a>
+                        <a href="{{ url('/profileAdmin') }}" class="h5 btn btn-light">Data User</a>
+                        <a href="{{ url('/dataMobil') }}" class="h5 btn btn-light">Data Mobil</a>
+                        <a href="{{ url('/dataTransaksi') }}" class="h5 btn btn-light">Data Transaksi</a>
                     </div>
                     <div class="justify-content-end d-flex">
                         <a href=""

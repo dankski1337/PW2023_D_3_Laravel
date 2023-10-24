@@ -1,6 +1,6 @@
 @extends('User.dashboard.user-dashboard-no-user')
 
-@section('content')
+@section('content1')
     <head>
         <title>JogjaCar - Home</title>
     </head>
@@ -9,11 +9,12 @@
         .container-details{
             align-items: center;
             justify-content: center;
-            padding-top: 10%;
         }
 
         .container-content {
             border: 1px solid #A3A3A3;
+            background-size: cover;
+            background-position: center;
         }
         
         .header{
@@ -22,13 +23,40 @@
 
         .tombol {
             text-align: center;
-            background-color: #001A4E;
+            background-color: #22668D;
             pointer-events: none;
+        }
+
+        .container-image img{
+            background-size: cover;
+            object-fit: cover;
+            width: 100%;
+            height: 500px;
+            padding: 0;
+        }
+
+        .container-item{    
+            text-align: center;
+            justify-content: center;
         }
     </style>
 
     <div class="container-details">
-        <h1 class="mt-4 header fw-semibold">Selamat Datang di JogjaCar</h1>
+    <div class="row border" style="margin-right: 0;">
+            <div class="col-lg-12" style="padding-right: 0;">
+                <div class="container-image">
+                    <img src="{{asset('images/rental-mobil-jambi.jpg')}}" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="row" style=" margin-bottom: 50px;">
+            <div class="col-lg-12">
+                <div class="container-detail text-center mx-auto my-5" style="max-width: 70%; ">
+                    <p class="text" style="font-size: 40px;"><strong>Selamat Datang di JogjaCar</strong></p>
+                    <p>JogjaCar adalah penyedia layanan car rental terkemuka yang berlokasi di Yogyakarta, Indonesia. Dengan komitmen untuk memberikan pengalaman perjalanan yang tak terlupakan, JogjaCar telah menjadi pilihan utama bagi pelanggan yang mencari kendaraan berkualitas dan layanan yang handal.</p>
+                </div>
+            </div>
+        </div>
         <form class="form-inline">
             <div class="card mt-4">
                 <div class="row gx-2 my-2 mx-2 d-block d-md-flex d-sm-flex row-md row-sm">
@@ -72,7 +100,7 @@
                     <div class="col-lg-2 d-flex col-md col-sm">
                         <button
                             class="tombol btn btn-primary my-2 w-100 d-flex justify-content-center align-items-center">
-                            <h5 class="d-lg-block fw-bold opacity-50">Log In untuk Melanjutkan</h5>
+                            <h5 class="d-lg-block fw-bold">Log In untuk Melanjutkan</h5>
                         </button>
                     </div>
                 </div>

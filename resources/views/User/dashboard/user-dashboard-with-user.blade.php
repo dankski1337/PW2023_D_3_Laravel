@@ -4,9 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initialscale=1">
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Google Font: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <!-- Boostrap 5 -->
@@ -39,12 +40,25 @@
         .modal-header {
             background-color: #003EB7;
         }
+        .nav-item a{
+            color: white;
+        }
+        *{
+            font-family: 'Poppins', sans-serif;
+        }
+        .app{
+            background-color: #F8F7FC;
+            height: 100vh;
+        }
+        .navbar{
+            background-color : #22668D;
+        }
     </style>
 </head>
 
 <body>
     <div class="app">
-        <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white">
+        <nav class="navbar sticky-top navbar-expand-lg">
             <div class="container-fluid px-3">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
@@ -152,6 +166,31 @@
         <div class="container">
             @yield('content')
         </div>
+        @yield('content1')
+
+        <footer>
+            <div class="container-footer mt-5">
+                <div class="display-footer bg-white">
+                    <div class="row pt-5 pb-5" style="max-width: 100%;">
+                        <div class="col-lg-6" style="padding-left: 100px;">
+                            <h5><strong>About Us</strong></h5>
+                            <p>Selamat datang di JogjaCar, penyedia layanan rental kendaraan yang Anda percayai untuk memenuhi kebutuhan perjalanan Anda di Yogyakarta. JogjaCar merupakan perusahaan rental kendaraan yang berdedikasi dalam memberikan pengalaman berkendara yang aman, nyaman, dan terpercaya bagi pelanggan kami. Dengan armada kendaraan yang terawat baik dan beragam pilihan mulai dari mobil keluarga hingga kendaraan mewah, kami berkomitmen untuk menyediakan layanan berkualitas tinggi dan kepuasan pelanggan yang prima. Dengan JogjaCar, Anda dapat menjelajahi pesona Yogyakarta dengan percaya diri dan kenyamanan, menjadikan setiap perjalanan Anda sebagai pengalaman yang berkesan dan menyenangkan.</p>
+                        </div>
+                        <div class="col-lg 6" style="padding-left: 100px;">
+                            <p><strong>Layanan Pengaduan Konsumen</strong></p>
+                            <p><strong>PT JogjaTrans</strong></p>
+                            <kaifuku@halodoc.com>l. Dirgantara I No.15, Kabupaten Sleman, Atma Jaya Yogyakarta, Yogyakarta</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-footer-bottom" style="background-color:#22668D">
+                    <div class="text-light text-center py-2 container pt-3">
+                        <p>&copy; 2023 Jogja Car</p>
+                        <p>Kelompok 3 Pemrograman Web D</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
     <!-- REQUIRED SCRIPTS -->
     <!-- jQuery -->
