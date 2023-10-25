@@ -18,7 +18,7 @@
                                 <div class="me-auto">
                                     <h5>No Telp :</h5>
                                 </div>
-                                <h5>081098765432</h5>
+                                <h5 a href="https://www.whatsapp.com/">081098765432</h5>
                             </div>
                             <div class="col d-flex mt-2 my-2">
                                 <div class="me-auto">
@@ -30,7 +30,7 @@
                                 <div class="me-auto">
                                     <h5>Alamat :</h5>
                                 </div>
-                                <h5>Jl. Monjali No.22</h5>
+                                <h5 a href="https://www.google.co.id/maps">Jl. Monjali No.22</h5>
                             </div>
                         </div>
                     </div>
