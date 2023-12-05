@@ -89,6 +89,9 @@
                         <li class="nav-item d-lg-none">
                             <a class="nav-link" href="{{ url('/profile') }}">Profile Anda</a>
                         </li>
+                        <li class="nav-item d-lg-none d-md-block d-sm-block">
+                            <a href="{{ url('/landing-no-user') }}" class="nav-link text-danger fw-bold">Log Out</a>
+                        </li>
                         {{-- <li class="nav-item d-lg-none d-md-block d-sm-block">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -98,9 +101,6 @@
                                 <li><a class="dropdown-item" href="#">Transaksi Anda</a></li>
                             </ul>
                         </li> --}}
-                        <li class="nav-item d-lg-none d-md-block d-sm-block">
-                            <a href="{{ url('/landing-no-user') }}" class="nav-link text-danger fw-bold">Log Out</a>
-                        </li>
                     </ul>
                     <ul class="navbar-nav d-none d-md-none d-lg-flex">
                         <li class="nav-item">
