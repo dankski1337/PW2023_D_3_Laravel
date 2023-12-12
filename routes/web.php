@@ -14,26 +14,44 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/', function () {
-    return view('User.landingPage.landing-page');
-});
-
-//Auth
+//Auth Route
+//Login
 Route::get('/login', function () {
     return view('Auth.login');
 });
+Route::post('actionLogin', [AuthController::class, 'actionLogin'])->name('actionLogin');
+//Register
 Route::get('/register', function () {
     return view('Auth.register');
 });
-//Login
-Route::post('actionLogin', [AuthController::class, 'actionLogin'])->name('actionLogin');
-//Register
-
+Route::post('actionRegister', [AuthController::class, 'actionRegister'])->name('actionRegister');
+Route::get('/register/verify/{verify_key}', [AuthController::class, 'verify'])->name('verify');
+//Logout
 Route::get('/logout', [AuthController::class, 'actionLogout'])->name('logout');
 
-Route::group(['middleware' => ['auth', 'CekRole:customer']], function () {
+// Route untuk user login & non login
+Route::get('/', function () {
+    return view('User.landingPage.landing-page');
+});
+Route::get('/kontak', function () {
+    return view('User.kontak.kontak');
+});
+Route::get('/cara-order', function () {
+    return view('User.caraOrder.cara-order');
+});
+
+//route untuk customer
+Route::group(['middleware' => ['auth', 'cekrole:customer']], function () {
+    Route::get('/profile', function () {
+        return view('User.profile.profile');
+    });
+    // TODO: update user &/ update profile picture
+});
+//route untuk admin
+Route::group(['middleware' => ['auth', 'cekrole:admin']], function () {
 
 });
+
 
 // Route::get('/input-ulasan', function () {
 //     return view('User.ulasan.input-ulasan');
@@ -595,4 +613,3 @@ Route::group(['middleware' => ['auth', 'CekRole:customer']], function () {
 //         ],
 //     ]);
 // });
-

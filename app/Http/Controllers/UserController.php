@@ -10,4 +10,6 @@ class UserController extends Controller
     function index(){
         $users = User::all();
     }
+
+    // TODO: update user &/ update profile picture
 }

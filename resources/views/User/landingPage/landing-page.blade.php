@@ -7,7 +7,19 @@
     </head>
 
     <style>
+        body{
+            background-image: url("images/bg-rental.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100%;
+            overflow-x: hidden;
+            height: 100vh;
+        }
+
         .container-details {
+            margin-top: 100px;
             align-items: center;
             justify-content: center;
             z-index: 2;
@@ -34,15 +46,21 @@
             @endif
         }
 
-        .container-image img {
+        .container-image{
             position: fixed;
-            /* top: 0; */
+            top: 0;
             left: 0;
             width: 100%;
-            height: 100vh;
-            object-fit: cover;
+            height: 100%;
             overflow: hidden;
             z-index: 0;
+        }
+
+        .container-image img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            aspect-ratio: 16/9;
         }
 
         .container-item {
@@ -57,13 +75,13 @@
     </style>
 
     <div class="container-details">
-        <div class="row border" style="margin-right: 0;">
+        {{-- <div class="row border" style="margin-right: 0;">
             <div class="col-lg-12" style="padding-right: 0;">
                 <div class="container-image">
                     <img src="{{ asset('images/bg-rental.jpg') }}"alt="">
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="row" style=" margin-bottom: 50px;">
             <div class="col-lg-12">
                 <div class="container-detail text-center mx-auto my-5"

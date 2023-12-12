@@ -1,4 +1,4 @@
-@extends('User.dashboard.user-dashboard-with-user')
+@extends('User.dashboard.user-dashboard')
 
 @section('content')
 
@@ -7,6 +7,12 @@
             JogjaCar - Cara Order
         </title>
     </head>
+
+    <style>
+        body {
+            background-color: #F8F7FC;
+        }
+    </style>
 
     <div class="container-detail">
         <h2 class="fw-bold my-4 text-center">

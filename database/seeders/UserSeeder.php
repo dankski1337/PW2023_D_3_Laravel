@@ -15,7 +15,8 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         DB::table('users')->insert([
-            'role' => 'admin',
+            'role' => 'customer',
+            'photo' => null,
             'status' => 1,
             'nama' => 'c',
             'username' => 'c',
@@ -23,6 +24,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('c'),
             'alamat' => 'jl. c',
             'no_telp' => '081',
+            'verify_key' => '22aa',
         ]);
     }
 }

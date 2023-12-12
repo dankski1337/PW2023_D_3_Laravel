@@ -22,6 +22,7 @@ class User extends Authenticatable
     public $timestamps = false;
     protected $fillable = [
         'role',
+        'photo',
         'status',
         'nama',
         'email',
@@ -29,6 +30,7 @@ class User extends Authenticatable
         'password',
         'alamat',
         'no_telp',
+        'verify_key',
     ];
 
     /**

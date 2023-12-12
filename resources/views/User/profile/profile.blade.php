@@ -1,4 +1,4 @@
-@extends('User.dashboard.user-dashboard-with-user')
+@extends('User.dashboard.user-dashboard')
 
 @section('content')
 
@@ -8,83 +8,88 @@
         </title>
     </head>
 
+    <style>
+    </style>
+
     <div class="container-details">
-        <h1 class="fw-bold my-4 text-center">Selamat Datang, {{ $user['username'] }}</h1>
+        <h1 class="fw-bold my-4 text-center">Profile anda, {{ auth()->user()->username }}</h1>
         <div class="container mt-4">
             <div class="row justify-content-center">
                 <div class="col-lg-6 col-md-9 col-sm-flex mt-2">
                     <div class="card">
                         <div class="card-body p-5">
-                            <div class="col d-flex mt-2 my-2">
-                                <div class="me-auto">
-                                    <h5>Nama :</h5>
-                                </div>
-                                <h5>{{ $user['nama'] }}</h5>
+                            <div class="col d-flex justify-content-center">
+                                @if (auth()->user()->photo == null)
+                                    <img src="{{ asset('images/profilepic.png') }}" alt=""
+                                        class="image-fluid rounded-circle" width="128" height="128">
+                                @else
+                                    <img src="{{ asset('storage/profileUser/' . auth()->user()->photo) }}"
+                                        class="image-fluid rounded-circle" alt="profile pic" width="128" height="128"
+                                        class="logo" style="object-fit: cover">
+                                @endif
                             </div>
-                            <div class="col d-flex mt-2 my-2">
-                                <div class="me-auto">
-                                    <h5>Email :</h5>
-                                </div>
-                                <h5>{{ $user['email'] }}</h5>
-                            </div>
-                            <div class="col d-flex mt-2 my-2">
-                                <div class="me-auto">
-                                    <h5>Username :</h5>
-                                </div>
-                                <h5>{{ $user['username'] }}</h5>
-                            </div>
-                            <div class="col d-flex mt-2 my-2">
-                                <div class="me-auto">
-                                    <h5>No Telp :</h5>
-                                </div>
-                                <h5>{{ $user['no-telp'] }}</h5>
-                            </div>
-                            <div class="col d-flex mt-2 my-2">
-                                <div class="me-auto">
-                                    <h5>Alamat :</h5>
-                                </div>
-                                <h5>{{ $user['alamat'] }}</h5>
+                            <table class="table table-borderless">
+                                <tr>
+                                    <td>
+                                        Nama
+                                    </td>
+                                    <td class="text-center">
+                                        :
+                                    </td>
+                                    <td class="text-end">
+                                        {{ auth()->user()->nama }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Email
+                                    </td>
+                                    <td class="text-center">
+                                        :
+                                    </td>
+                                    <td class="text-end">
+                                        {{ auth()->user()->email }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Username
+                                    </td>
+                                    <td class="text-center">
+                                        :
+                                    </td>
+                                    <td class="text-end">
+                                        {{ auth()->user()->username }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        No Telp
+                                    </td>
+                                    <td class="text-center">
+                                        :
+                                    </td>
+                                    <td class="text-end">
+                                        {{ auth()->user()->no_telp }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Alamat
+                                    </td>
+                                    <td class="text-center">
+                                        :
+                                    </td>
+                                    <td class="text-end">
+                                        {{ auth()->user()->alamat }}
+                                    </td>
+                                </tr>
+                            </table>
+                            {{-- TODO: edit profile --}}
+                            <div class="d-flex justify-content-end mt-3">
+                                <a href="" class="btn btn-primary">Edit Profile</a>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <h5 class="my-4 text-center">Daftar Transaksi Anda</h5>
-        <div class="container mt-4">
-            <div class="row justify-content-center">
-                <div class="col-lg-6 col-md-9 col-sm-flex mt-2">
-                    <div class="card">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Id</th>
-                                    <th scope="col">Total</th>
-                                    <th scope="col">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($transaksi as $item)
-                                    <tr>
-                                        <th scope="row">{{ $item['id'] }}</th>
-                                        <td>{{ $item['total'] }}</td>
-                                        <td
-                                            @if ($item['status'] == 'Belum Dibayar') class="text-danger fw-semibold"
-                                        @else
-                                            class="text-success fw-semibold" @endif>
-                                            {{ $item['status'] }}</td>
-                                        <td><a href="
-                                            @if ($item['status'] == 'Belum Dibayar')
-                                                {{ url('/detail-transaksi') }}
-                                            @else
-                                                {{ url('/detail-transaksi-dibayar') }}
-                                            @endif
-                                            " class="text-decoration-underline">Detail</a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
                     </div>
                 </div>
             </div>

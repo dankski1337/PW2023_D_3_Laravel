@@ -1,4 +1,4 @@
-@extends('User.dashboard.user-dashboard-no-user')
+@extends('User.dashboard.user-dashboard')
 
 @section('content')
 
@@ -7,6 +7,10 @@
     </head>
 
     <style>
+        body{
+            background-color: #F8F7FC;
+        }
+
         .logo {
             width: 50%;
         }

@@ -20,7 +20,7 @@
 
     <style>
         body {
-            background-color: #F8F7FC;
+            /* background-color: #F8F7FC; */
         }
 
         a {
@@ -33,8 +33,11 @@
         }
 
         .app {
-            background-color: #F8F7FC;
-            height: 100vh;
+            /* background-color: #F8F7FC; */
+            /* height: 100vh; */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         footer {
@@ -44,6 +47,15 @@
 
         .profile-pic {
             height: 24px;
+            width: 24px;
+        }
+
+        .content-wrapper {
+            min-height: 100vh;
+        }
+
+        .footer {
+            margin-top: auto;
         }
     </style>
 </head>
@@ -68,13 +80,13 @@
                             <a class="nav-link" href="{{ url('/') }}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/list-mobil-no-user') }}">Daftar Mobil</a>
+                            <a class="nav-link" href="{{ url('/mobil') }}">Daftar Mobil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/kontak-no-user') }}">Kontak</a>
+                            <a class="nav-link" href="{{ url('/kontak') }}">Kontak</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/cara-order-no-user') }}">Cara Order</a>
+                            <a class="nav-link" href="{{ url('/cara-order') }}">Cara Order</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/ulasan-no-user') }}">Ulasan</a>
@@ -89,25 +101,29 @@
                         @endauth
                         @guest
                             <li class="nav-item d-md-none d-sm-block">
-                                <a href="{{ url('/login') }}" class="nav-link fw-semibold">Log In</a>
+                                <a href="{{ url('/login') }}" class="nav-link fw-semibold btn btn-primary">Log In</a>
                             </li>
                             <li class="nav-item d-md-none d-sm-block">
                                 <a href="{{ url('/register') }}" class="nav-link fw-semibold">Register</a>
                             </li>
                         @endguest
                     </ul>
+                    <hr>
                     @auth
                         <ul class="navbar-nav d-none d-md-none d-lg-flex">
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-bs-toggle="offcanvas"
-                                    data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Selamat datang,
-                                    {{ auth()->user()->username }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" data-bs-toggle="offcanvas"
                                     data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
-                                    <img src="{{ asset('images/profilepic.png') }}" alt="Profile pic"
-                                        class="profile-pic rounded-circle">
+                                    Selamat datang,
+                                    {{ auth()->user()->username }}
+                                    @if (Auth::user()->photo == null)
+                                        <img src="{{ asset('images/profilepic.png') }}" alt="Profile pic"
+                                            class="profile-pic rounded-circle" style="margin-left: 5px">
+                                    @else
+                                        <img src="{{ asset('storage/profileUser/' . auth()->user()->photo) }}"
+                                            alt="Profile pic" class="profile-pic rounded-circle" style="margin-left: 5px; object-fit: cover;">
+                                    @endif
+
                                 </a>
                             </li>
                         </ul>
@@ -143,21 +159,39 @@
                     <div class="container-fluid">
                         <div class="row gx-2 gy-2 mb-auto">
                             <a href="{{ url('/profile') }}" class="h5 btn btn-light">Profile Anda</a>
-                            {{-- <a href="" class="h5 btn btn-light">Transaksi Anda</a> --}}
+                            <a href="" class="h5 btn btn-light">Transaksi Anda</a>
                         </div>
                         <div class="justify-content-end d-flex">
-                            <a href="{{ route('logout') }}"
-                                class="btn btn-danger align-items-end d-flex position-absolute bottom-0 mb-2 fw-semibold">Log
-                                Out</a>
+                            <button type="button"
+                                class="btn btn-danger align-items-end d-flex position-absolute bottom-0 mb-2 fw-semibold" data-bs-target="#confirmLogout" data-bs-toggle="modal">Log
+                                Out</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="confirmLogout" tabindex="-1" role="dialog" aria-labelledby="confirmLogoutModal" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body align-content-center">
+                            <p>
+                                Apakah Anda yakin ingin keluar?
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                            <a href="{{ route('logout') }}" class="btn btn-danger">Ya</a>
                         </div>
                     </div>
                 </div>
             </div>
         @endauth
-        <div class="container">
-            @yield('content')
+        <div class="content-wrapper">
+            <div class="container">
+                @yield('content')
+            </div>
+            @yield('content1')
         </div>
-        @yield('content1')
 
         <footer>
             <div class="container-footer mt-5">
@@ -165,14 +199,16 @@
                     <div class="row pt-5 pb-5" style="max-width: 100%;">
                         <div class="col-lg-6" style="padding-left: 100px;">
                             <h5><strong>About Us</strong></h5>
-                            <p>Selamat datang di JogjaCar, penyedia layanan rental kendaraan yang Anda percayai untuk
+                            <p>
+                                Selamat datang di JogjaCar, penyedia layanan rental kendaraan yang Anda percayai untuk
                                 memenuhi kebutuhan perjalanan Anda di Yogyakarta. JogjaCar merupakan perusahaan rental
                                 kendaraan yang berdedikasi dalam memberikan pengalaman berkendara yang aman, nyaman, dan
                                 terpercaya bagi pelanggan kami. Dengan armada kendaraan yang terawat baik dan beragam
                                 pilihan mulai dari mobil keluarga hingga kendaraan mewah, kami berkomitmen untuk
                                 menyediakan layanan berkualitas tinggi dan kepuasan pelanggan yang prima. Dengan
                                 JogjaCar, Anda dapat menjelajahi pesona Yogyakarta dengan percaya diri dan kenyamanan,
-                                menjadikan setiap perjalanan Anda sebagai pengalaman yang berkesan dan menyenangkan.</p>
+                                menjadikan setiap perjalanan Anda sebagai pengalaman yang berkesan dan menyenangkan.
+                            </p>
                         </div>
                         <div class="col-lg 6" style="padding-left: 100px;">
                             <p><strong>Layanan Pengaduan Konsumen</strong></p>
