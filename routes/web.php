@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,7 +46,9 @@ Route::group(['middleware' => ['auth', 'cekrole:customer']], function () {
     Route::get('/profile', function () {
         return view('User.profile.profile');
     });
-    // TODO: update user &/ update profile picture
+    Route::post('/profile/updatePhoto/{id}', [UserController::class, 'updatePhoto'])->name('profile.updatePhoto');
+    Route::post('/profile/updatePassword/{id}', [UserController::class, 'updatePassword'])->name('profile.updatePassword');
+    Route::post('/profile/updateDataUser/{id}', [UserController::class, 'updateDataUser'])->name('profile.updateDataUser');
 });
 //route untuk admin
 Route::group(['middleware' => ['auth', 'cekrole:admin']], function () {

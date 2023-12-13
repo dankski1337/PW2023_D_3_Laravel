@@ -38,7 +38,6 @@ class AuthController extends Controller
 
         if (Auth::attempt($userData)) {
             $user = Auth::user();
-            // dd(Auth::check());
             if ($user->role == 'customer' && $user->status == 1) {
                 return redirect('/');
                 // }else if($user->role == 'admin' && $user->status == 1){
@@ -68,7 +67,7 @@ class AuthController extends Controller
                 'nama' => 'required',
                 'username' => 'required|unique:users|max:32',
                 'email' => 'required|unique:users',
-                'password' => 'required|min:6|same:password_confirmation',
+                'password' => 'required|min:6',
                 'password_confirmation' => 'required|same:password',
                 'alamat' => 'required',
                 'no_telp' => 'required|starts_with:08',
