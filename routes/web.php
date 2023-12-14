@@ -34,7 +34,8 @@ Route::get('/logout', [AuthController::class, 'actionLogout'])->name('logout');
 
 // Route untuk user login & non login
 Route::get('/', function () {
-    return view('User.landingPage.landing-page');
+    $mobil = \App\Models\Mobil::where('status', 'Tersedia')->get();
+    return view('User.landingPage.landing-page', compact('mobil'));
 });
 Route::get('/kontak', function () {
     return view('User.kontak.kontak');

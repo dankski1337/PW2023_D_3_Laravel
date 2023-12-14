@@ -19,8 +19,20 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('images/logo-favicon.png') }}">
 
     <style>
+        @font-face{
+            font-family: 'Inter';
+            src: url("{{ asset('fonts/Inter-Regular.ttf') }}") format("truetype");
+            font-weight: normal;
+        }
+
+        @font-face{
+            font-family: 'Inter';
+            src: url("{{ asset('fonts/Inter-SemiBold.ttf') }}") format("truetype");
+            font-weight: 600;
+        }
+
         body {
-            /* background-color: #F8F7FC; */
+            background-color: #F8F7FC;
         }
 
         a {
@@ -29,7 +41,7 @@
         }
 
         * {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
         .app {
