@@ -80,7 +80,7 @@
                             <a class="nav-link" href="{{ url('/') }}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/mobil') }}">Daftar Mobil</a>
+                            <a class="nav-link" href="{{ route('list-mobil') }}">Daftar Mobil</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/kontak') }}">Kontak</a>
@@ -89,7 +89,7 @@
                             <a class="nav-link" href="{{ url('/cara-order') }}">Cara Order</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/ulasan-no-user') }}">Ulasan</a>
+                            <a class="nav-link" href="{{ route('ulasan') }}">Ulasan</a>
                         </li>
                         @auth
                             <li class="nav-item d-lg-none">
@@ -133,7 +133,7 @@
                             <li class="nav-item">
                                 <a href="{{ url('/login') }}" class="nav-link fw-semibold">Log In</a>
                             </li>
-                            <span class="nav-link d-none d-lg-block">/</span>
+                            <span class="nav-link d-none d-lg-block">-</span>
                             <li class="nav-item">
                             <li class="nav-item">
                                 <a href="{{ url('/register') }}" class="nav-link fw-semibold">Register</a>
@@ -170,6 +170,7 @@
                 </div>
             </div>
 
+            {{-- modal confirm keluar --}}
             <div class="modal fade" id="confirmLogout" tabindex="-1" role="dialog" aria-labelledby="confirmLogoutModal" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">

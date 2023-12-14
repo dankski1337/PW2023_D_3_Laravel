@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MobilController;
+use App\Http\Controllers\UlasanController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -40,15 +42,22 @@ Route::get('/kontak', function () {
 Route::get('/cara-order', function () {
     return view('User.caraOrder.cara-order');
 });
+Route::get('/ulasan', [UlasanController::class, 'indexUlasan'])->name('ulasan');
+Route::get('/list-mobil', [MobilController::class, 'indexMobil'])->name('list-mobil');
+Route::get('/list-mobil/cari', [MobilController::class, 'cariMobil'])->name('cari-mobil');
 
 //route untuk customer
 Route::group(['middleware' => ['auth', 'cekrole:customer']], function () {
+    //profile
     Route::get('/profile', function () {
         return view('User.profile.profile');
     });
     Route::post('/profile/updatePhoto/{id}', [UserController::class, 'updatePhoto'])->name('profile.updatePhoto');
     Route::post('/profile/updatePassword/{id}', [UserController::class, 'updatePassword'])->name('profile.updatePassword');
     Route::post('/profile/updateDataUser/{id}', [UserController::class, 'updateDataUser'])->name('profile.updateDataUser');
+    //Ulasan
+    Route::post('/ulasan/create', [UlasanController::class, 'create'])->name('ulasan.create');
+    Route::delete('/ulasan/delete/{id}', [UlasanController::class, 'destroy'])->name('ulasan.destroy');
 });
 //route untuk admin
 Route::group(['middleware' => ['auth', 'cekrole:admin']], function () {

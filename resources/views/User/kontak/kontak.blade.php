@@ -21,7 +21,9 @@
                 <div class="col-lg-9 col-md-9 col-sm-flex mt-2">
                     <div class="card">
                         <div class="card-body p-5">
-                            {{-- make a table --}}
+                            <p class="text-center fs-5">
+                                Jika Anda memiliki pertanyaan atau saran, silahkan hubungi kami melalui kontak di bawah ini.
+                            </p>
                             <table class="table table-borderless">
                                 <tr>
                                     <td>
@@ -53,7 +55,7 @@
                                         :
                                     </td>
                                     <td class="text-end">
-                                        Jl. Monjali No.22
+                                        l. Dirgantara I No.15, Kabupaten Sleman, Atma Jaya Yogyakarta, Yogyakarta
                                     </td>
                                 </tr>
                             </table>
