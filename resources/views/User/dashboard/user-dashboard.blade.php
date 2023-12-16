@@ -31,6 +31,10 @@
             font-weight: 600;
         }
 
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
         body {
             background-color: #F8F7FC;
         }
@@ -38,10 +42,6 @@
         a {
             text-decoration: none;
             color: black;
-        }
-
-        * {
-            font-family: 'Inter', sans-serif;
         }
 
         .app {
@@ -68,6 +68,12 @@
 
         .footer {
             margin-top: auto;
+        }
+
+        .anggota {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
         }
     </style>
 </head>
@@ -171,7 +177,7 @@
                     <div class="container-fluid">
                         <div class="row gx-2 gy-2 mb-auto">
                             <a href="{{ url('/profile') }}" class="h5 btn btn-light">Profile Anda</a>
-                            <a href="" class="h5 btn btn-light">Transaksi Anda</a>
+                            <a href="{{ route('transaksi.riwayat') }}" class="h5 btn btn-light">Transaksi Anda</a>
                         </div>
                         <div class="justify-content-end d-flex">
                             <button type="button"
@@ -224,16 +230,19 @@
                             </p>
                         </div>
                         <div class="col-lg 6" style="padding-left: 100px;">
-                            <p><strong>Layanan Pengaduan Konsumen</strong></p>
-                            <p><strong>PT JogjaTrans</strong></p>
-                            <kaifuku@halodoc.com>l. Dirgantara I No.15, Kabupaten Sleman, Atma Jaya Yogyakarta,
-                                Yogyakarta</p>
+                            <h5><strong>Kelompok 3 Pemrograman Web D</strong></h5>
+                            <p class="fw-bold">Tim Kami :</p>
+                            <div class="anggota">
+                                <a href="https://github.com/dankski1337" class="fw-semibold"><i class="bi bi-github"></i> Simon Andrian Agis</a>
+                                <a href="https://github.com/zeedvyy" class="fw-semibold"><i class="bi bi-github"></i> Azegdita Vanaya Lerrick</a>
+                                <a href="https://github.com/marcellaav" class="fw-semibold"><i class="bi bi-github"></i> Marcella Averina</a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="container-footer-bottom" style="background-color:#003EB7;">
                     <div class="text-light text-center py-2 container pt-3">
-                        <p>&copy; 2023 Jogja Car</p>
+                        <p>&copy; 2023 JogjaCar</p>
                         <p>Kelompok 3 Pemrograman Web D</p>
                     </div>
                 </div>

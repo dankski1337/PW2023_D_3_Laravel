@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MobilController;
+use App\Http\Controllers\RentalTransaksiController;
 use App\Http\Controllers\UlasanController;
 use App\Http\Controllers\UserController;
 
@@ -34,8 +35,8 @@ Route::get('/logout', [AuthController::class, 'actionLogout'])->name('logout');
 
 // Route untuk user login & non login
 Route::get('/', function () {
-    $mobil = \App\Models\Mobil::where('status', 'Tersedia')->get();
-    return view('User.landingPage.landing-page', compact('mobil'));
+    // $mobil = \App\Models\Mobil::where('status', 'Tersedia')->get();
+    return view('User.landingPage.landing-page');
 });
 Route::get('/kontak', function () {
     return view('User.kontak.kontak');
@@ -59,6 +60,13 @@ Route::group(['middleware' => ['auth', 'cekrole:customer']], function () {
     //Ulasan
     Route::post('/ulasan/create', [UlasanController::class, 'create'])->name('ulasan.create');
     Route::delete('/ulasan/delete/{id}', [UlasanController::class, 'destroy'])->name('ulasan.destroy');
+    //Transaksi
+    Route::post('/transaksi/select-mobil', [RentalTransaksiController::class, 'sendTransaksiToSelectMobil'])->name('transaksi.select-mobil');
+    Route::post('/transaksi/confirm', [RentalTransaksiController::class, 'sendTransaksiToConfirm'])->name('transaksi.confirm');
+    Route::get('/transaksi/detail/{id}', [RentalTransaksiController::class, 'detailTransaksi'])->name('transaksi.detail');
+    Route::post('/transaksi/create', [RentalTransaksiController::class, 'createTransaksi'])->name('transaksi.create');
+    Route::get('/transaksi/riwayat', [RentalTransaksiController::class, 'getTransaksiByUser'])->name('transaksi.riwayat');
+    // Route::match(['get', 'post'],'/transaksi/select-mobil/cari', [MobilController::class, 'cariMobilSelect'])->name('transaksi.cari-mobil-select');
 });
 //route untuk admin
 Route::group(['middleware' => ['auth', 'cekrole:admin']], function () {

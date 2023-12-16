@@ -34,8 +34,8 @@
         </form>
         <div class="row align-items-center mt-4">
             @if ($mobil->isEmpty())
-                <div class="col-lg-4 col-md-6 col-sm-flex mt-4">
-                    <p class="text-center h5"><strong>Tidak ada mobil yang tersedia</strong></p>
+                <div class="col-flex mt-4">
+                    <p class="text-center h5"><strong>Mobil tidak ada</strong></p>
                 </div>
             @endif
             @foreach ($mobil as $item)
@@ -44,7 +44,7 @@
                         <div class="card w-100 py-2 px-2">
                             <div class="card-body">
                                 <p class="text-center h5"><strong>{{ $item['model'] }}</strong></p>
-                                <img src="{{ asset('images/mobil/' . $item['gambar']) }}" alt="gambar mobil"
+                                <img src="{{ asset('storage/mobil/' . $item['gambar']) }}" alt="gambar mobil"
                                     class="text-center mobil-pic">
                                 <table class="my-2 table table-borderless">
                                     <tr class="mb-0">
