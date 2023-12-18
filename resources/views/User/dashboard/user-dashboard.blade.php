@@ -19,13 +19,13 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('images/logo-favicon.png') }}">
 
     <style>
-        @font-face{
+        @font-face {
             font-family: 'Inter';
             src: url("{{ asset('fonts/Inter-Regular.ttf') }}") format("truetype");
             font-weight: normal;
         }
 
-        @font-face{
+        @font-face {
             font-family: 'Inter';
             src: url("{{ asset('fonts/Inter-SemiBold.ttf') }}") format("truetype");
             font-weight: 600;
@@ -95,38 +95,41 @@
                             src="{{ asset('images/logo.png') }}" alt="logo"></a>
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}">Home</a>
+                            <a class="nav-link btn" href="{{ url('/') }}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('list-mobil') }}">Daftar Mobil</a>
+                            <a class="nav-link btn" href="{{ route('list-mobil') }}">Daftar Mobil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/kontak') }}">Kontak</a>
+                            <a class="nav-link btn" href="{{ url('/kontak') }}">Kontak</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/cara-order') }}">Cara Order</a>
+                            <a class="nav-link btn" href="{{ url('/cara-order') }}">Cara Order</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('ulasan') }}">Ulasan</a>
+                            <a class="nav-link btn" href="{{ route('ulasan') }}">Ulasan</a>
                         </li>
+                        <hr>
                         @auth
                             <li class="nav-item d-lg-none">
-                                <a class="nav-link" href="{{ url('/profile') }}">Profile Anda</a>
+                                <a class="nav-link btn btn-secondary border border-secondary" href="{{ url('/profile') }}">Profile Anda</a>
                             </li>
-                            <li class="nav-item d-lg-none d-md-block d-sm-block">
-                                <a href="{{ route('logout') }}" class="nav-link text-danger fw-bold">Log Out</a>
+                            <li class="nav-item d-lg-none mt-2">
+                                <a class="nav-link btn btn-secondary border border-secondary" href="{{ route('transaksi.riwayat') }}">Transaksi Anda</a>
+                            </li>
+                            <li class="nav-item d-lg-none d-md-block d-sm-block mt-2">
+                                <a href="{{ route('logout') }}" class="nav-link text-white fw-bold btn btn-danger bg-danger">Log Out</a>
                             </li>
                         @endauth
                         @guest
                             <li class="nav-item d-md-none d-sm-block">
-                                <a href="{{ url('/login') }}" class="nav-link fw-semibold btn btn-primary">Log In</a>
+                                <a href="{{ url('/login') }}" class="nav-link fw-semibold btn btn-primary text-white" style="background-color: #003EB7">Log In</a>
                             </li>
-                            <li class="nav-item d-md-none d-sm-block">
-                                <a href="{{ url('/register') }}" class="nav-link fw-semibold">Register</a>
+                            <li class="nav-item d-md-none d-sm-block mt-2">
+                                <a href="{{ url('/register') }}" class="nav-link fw-semibold btn btn-primary text-white" style="background-color: #003EB7">Register</a>
                             </li>
                         @endguest
                     </ul>
-                    <hr>
                     @auth
                         <ul class="navbar-nav d-none d-md-none d-lg-flex">
                             <li class="nav-item">
@@ -139,7 +142,8 @@
                                             class="profile-pic rounded-circle" style="margin-left: 5px">
                                     @else
                                         <img src="{{ asset('storage/profileUser/' . auth()->user()->photo) }}"
-                                            alt="Profile pic" class="profile-pic rounded-circle" style="margin-left: 5px; object-fit: cover;">
+                                            alt="Profile pic" class="profile-pic rounded-circle"
+                                            style="margin-left: 5px; object-fit: cover;">
                                     @endif
 
                                 </a>
@@ -151,8 +155,8 @@
                             <li class="nav-item">
                                 <a href="{{ url('/login') }}" class="nav-link fw-semibold">Log In</a>
                             </li>
-                            <span class="nav-link d-none d-lg-block">-</span>
-                            <li class="nav-item">
+                            <span class="nav-link d-none d-lg-block">&#124;</span>
+                            {{-- <li class="nav-item"> --}}
                             <li class="nav-item">
                                 <a href="{{ url('/register') }}" class="nav-link fw-semibold">Register</a>
                             </li>
@@ -181,7 +185,8 @@
                         </div>
                         <div class="justify-content-end d-flex">
                             <button type="button"
-                                class="btn btn-danger align-items-end d-flex position-absolute bottom-0 mb-2 fw-semibold" data-bs-target="#confirmLogout" data-bs-toggle="modal">Log
+                                class="btn btn-danger align-items-end d-flex position-absolute bottom-0 mb-2 fw-semibold"
+                                data-bs-target="#confirmLogout" data-bs-toggle="modal">Log
                                 Out</button>
                         </div>
                     </div>
@@ -189,7 +194,8 @@
             </div>
 
             {{-- modal confirm keluar --}}
-            <div class="modal fade" id="confirmLogout" tabindex="-1" role="dialog" aria-labelledby="confirmLogoutModal" aria-hidden="true">
+            <div class="modal fade" id="confirmLogout" tabindex="-1" role="dialog"
+                aria-labelledby="confirmLogoutModal" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-body align-content-center">
@@ -233,9 +239,12 @@
                             <h5><strong>Kelompok 3 Pemrograman Web D</strong></h5>
                             <p class="fw-bold">Tim Kami :</p>
                             <div class="anggota">
-                                <a href="https://github.com/dankski1337" class="fw-semibold"><i class="bi bi-github"></i> Simon Andrian Agis</a>
-                                <a href="https://github.com/zeedvyy" class="fw-semibold"><i class="bi bi-github"></i> Azegdita Vanaya Lerrick</a>
-                                <a href="https://github.com/marcellaav" class="fw-semibold"><i class="bi bi-github"></i> Marcella Averina</a>
+                                <a href="https://github.com/dankski1337" class="fw-semibold"><i
+                                        class="bi bi-github"></i> Simon Andrian Agis</a>
+                                <a href="https://github.com/zeedvyy" class="fw-semibold"><i class="bi bi-github"></i>
+                                    Azegdita Vanaya Lerrick</a>
+                                <a href="https://github.com/marcellaav" class="fw-semibold"><i
+                                        class="bi bi-github"></i> Marcella Averina</a>
                             </div>
                         </div>
                     </div>

@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class UserController extends Controller
 {
@@ -59,8 +60,18 @@ class UserController extends Controller
                 'new_password' => 'required|string|min:6|different:old_password',
                 'confirm_new_password' => 'required|string|min:6|same:new_password',
             ]);
-        }catch(\Exception $e){
-            return redirect('profile')->with('error', 'Password gagal diubah : ' . $e->getMessage());
+        }catch(\Illuminate\Validation\ValidationException $e){
+            $errors = $e->validator->errors();
+
+            $errorMessage = 'Password gagal diubah: ';
+
+            foreach($errors->all() as $message){
+                $errorMessage .= $message . "\n";
+            }
+
+            return redirect('profile')->with('error', $errorMessage);
+            
+            // return redirect('profile')->with('error', 'Password gagal diubah : ' . $e->getMessage());
         }
 
         $validate['password'] = Hash::make($validate['new_password']);
@@ -83,8 +94,18 @@ class UserController extends Controller
                 'alamat' => 'required',
                 'no_telp' => 'required|starts_with:08',
             ]);
-        }catch(\Exception $e){
-            return redirect('profile')->with('error', 'Data gagal diubah : ' . $e->getMessage());
+        }catch(\Illuminate\Validation\ValidationException $e){
+            $errors = $e->validator->errors();
+
+            $errorMessage = 'Data gagal diubah: ';
+
+            foreach($errors->all() as $message){
+                $errorMessage .= $message . "\n";
+            }
+
+            return redirect('profile')->with('error', $errorMessage);
+            
+            // return redirect('profile')->with('error', 'Data gagal diubah : ' . $e->getMessage());
         }
 
         $user->update($validate);

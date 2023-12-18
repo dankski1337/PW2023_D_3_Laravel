@@ -113,7 +113,7 @@ class AuthController extends Controller
 
             return view('Mail.mailSuccess');
         } else {
-            return "Key tidak ditemukan";
+            return view('Mail.mailFail');
         }
     }
 }

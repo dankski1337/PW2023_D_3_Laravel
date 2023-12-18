@@ -59,13 +59,14 @@ Route::group(['middleware' => ['auth', 'cekrole:customer']], function () {
     Route::post('/profile/updateDataUser/{id}', [UserController::class, 'updateDataUser'])->name('profile.updateDataUser');
     //Ulasan
     Route::post('/ulasan/create', [UlasanController::class, 'create'])->name('ulasan.create');
-    Route::delete('/ulasan/delete/{id}', [UlasanController::class, 'destroy'])->name('ulasan.destroy');
+    Route::post('/ulasan/delete', [UlasanController::class, 'destroy'])->name('ulasan.destroy');
     //Transaksi
     Route::post('/transaksi/select-mobil', [RentalTransaksiController::class, 'sendTransaksiToSelectMobil'])->name('transaksi.select-mobil');
     Route::post('/transaksi/confirm', [RentalTransaksiController::class, 'sendTransaksiToConfirm'])->name('transaksi.confirm');
     Route::get('/transaksi/detail/{id}', [RentalTransaksiController::class, 'detailTransaksi'])->name('transaksi.detail');
     Route::post('/transaksi/create', [RentalTransaksiController::class, 'createTransaksi'])->name('transaksi.create');
     Route::get('/transaksi/riwayat', [RentalTransaksiController::class, 'getTransaksiByUser'])->name('transaksi.riwayat');
+    Route::get('/transaksi/riwayat/cari', [RentalTransaksiController::class, 'cariTransaksi'])->name('transaksi.cari');
     // Route::match(['get', 'post'],'/transaksi/select-mobil/cari', [MobilController::class, 'cariMobilSelect'])->name('transaksi.cari-mobil-select');
 });
 //route untuk admin

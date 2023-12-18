@@ -16,12 +16,23 @@
         .table tbody a {
             text-decoration: none;
         }
+
+        .cariBtn {
+            background-color: #003EB7;
+        }
     </style>
 
     <div class="container-details">
         <h1 class="text-center fw-bold my-4">Riwayat Transaksi Anda</h1>
         <div class="card mx-4 p-4 mt-4">
-            <table class="table">
+            <div class="d-flex justify-content-end mb-3">
+                <form class="d-flex" method="GET" action="{{ route('transaksi.cari') }}">
+                    <input class="form-control me-2" type="search" placeholder="Cari Transaksi" name="cari"
+                        aria-label="Search" style="widht: 300px">
+                    <button class="btn btn-primary cariBtn" type="submit">Cari</button>
+                </form>
+            </div>
+            <table class="table-responsive">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -48,7 +59,8 @@
                                 @endif
                             </td>
                             <td>
-                                <a href="{{ route('transaksi.detail', $item['id_rental_transaksi']) }}" style="text-decoration: underline;">Detail</a>
+                                <a href="{{ route('transaksi.detail', $item['id_rental_transaksi']) }}"
+                                    style="text-decoration: underline;">Detail</a>
                             </td>
                         </tr>
                     @endforeach

@@ -4,8 +4,6 @@
 
     <head>
         <title>JogjaCar - Home</title>
-
-        <link rel="stylesheet" type="text/css" href="css/msdropdown/dd.css" />
     </head>
 
     <style>
@@ -196,19 +194,6 @@
 
         <p class="text-white" style="font-style: italic; opacity: 80%;">*Jam operasional JogjaCar adalah 06:00-21:00</p>
     </div>
-
-    <script src="js/msdropdown/jquery-1.3.2.min.js" type="text/javascript"></script>
-    <script src="js/msdropdown/jquery.dd.min.js" type="text/javascript"></script>
-
-    <script language="javascript">
-        $(document).ready(function(e) {
-            try {
-                $("body select").msDropDown();
-            } catch (e) {
-                alert(e.message);
-            }
-        });
-    </script>
 
     <script>
         const lokasiPengambilan = document.getElementById('lokasiPengambilan');
