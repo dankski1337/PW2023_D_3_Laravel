@@ -139,9 +139,9 @@
                             </table>
                             <div class="d-flex justify-content-end mt-3">
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#passModal">Edit Password</button>
+                                    data-bs-target="#passModal" style="background-color: #003EB7">Edit Password</button>
                                 <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal"
-                                    data-bs-target="#dataModal">Edit Data Diri</button>
+                                    data-bs-target="#dataModal" style="background-color: #003EB7">Edit Data Diri</button>
                             </div>
                         </div>
                     </div>
@@ -164,7 +164,7 @@
                         <div class="form-group mt-2">
                             <label for="old_password" class="form-label">Password Lama</label>
                             <input type="password" class="form-control @error('old_password') is-invalid @enderror"
-                                id="old_password" name="old_password">
+                                id="old_password" name="old_password" required>
                             @error('old_password')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -174,7 +174,7 @@
                         <div class="form-group mt-2">
                             <label for="password" class="form-label">Password Baru</label>
                             <input type="password" class="form-control @error('password') is-invalid @enderror"
-                                id="password" name="new_password">
+                                id="password" name="new_password" required>
                             @error('password')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -184,7 +184,7 @@
                         <div class="form-group mt-2 mb-2">
                             <label for="confirm_password" class="form-label">Konfirmasi Password Baru</label>
                             <input type="password" class="form-control @error('confirm_password') is-invalid @enderror"
-                                id="confirm_password" name="confirm_new_password">
+                                id="confirm_password" name="confirm_new_password" required>
                             @error('confirm_password')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -194,7 +194,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="submit" class="btn btn-primary" style="background-color: #003EB7">Simpan</button>
                 </div>
                 </form>
             </div>
@@ -265,7 +265,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="submit" class="btn btn-primary" style="background-color: #003EB7">Simpan</button>
                 </div>
                 </form>
             </div>

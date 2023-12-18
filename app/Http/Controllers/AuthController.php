@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\VerifyMail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\ValidationException;
+use App\Models\Mobil;
 
 class AuthController extends Controller
 {
@@ -44,7 +45,7 @@ class AuthController extends Controller
                 //     return redirect('/admin');
             } else {
                 Auth::logout();
-                Session::flash('error', 'Akun anda belum aktif');
+                Session::flash('error', 'Akun anda belum aktif, cek email anda untuk mengaktifkan akun');
                 return redirect('login');
             }
         } else {

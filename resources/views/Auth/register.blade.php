@@ -113,7 +113,7 @@
                                         style="text-decoration: underline;">Sudah punya akun?</a>
                                 </div>
                                 <div class="row justify-content-center mt-4">
-                                    <button type="submit" class="btn btn-primary px-4 fw-bold">Register</button>
+                                    <button type="submit" class="btn btn-primary px-4 fw-bold" style="background-color: #003EB7">Register</button>
                                 </div>
                             </form>
                         </div>

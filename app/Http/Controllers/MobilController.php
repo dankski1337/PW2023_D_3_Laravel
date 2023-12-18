@@ -16,7 +16,7 @@ class MobilController extends Controller
     public function cariMobil(Request $request)
     {
         $cari = $request->cari;
-        if($cari == null){
+        if ($cari == null) {
             return redirect()->route('list-mobil');
         }
         $mobil = Mobil::where('model', 'like', "%$cari%")
@@ -29,4 +29,23 @@ class MobilController extends Controller
             ->paginate(6);
         return view('User.mobil.list-mobil', compact('mobil'));
     }
+
+    //fungsi freestyle
+    // public function cariMobilSelect(Request $request)
+    // {
+    //     $data = json_decode($request->input('data'), true);
+    //     $cari = $request->cari;
+    //     if ($cari == null) {
+    //         return redirect()->back();
+    //     }
+    //     $mobil = Mobil::where('model', 'like', "%$cari%")
+    //         ->orWhere('bahan_bakar', 'like', "%$cari%")
+    //         ->orWhere('transmisi', 'like', "%$cari%")
+    //         ->orWhere('jumlah_kursi', 'like', "%$cari%")
+    //         ->orWhere('tahun_produksi', 'like', "%$cari%")
+    //         ->orWhere('warna', 'like', "%$cari%")
+    //         ->orWhere('tarif', 'like', "%$cari%")
+    //         ->paginate(6);
+    //     return view('User.mobil.list-mobil-select', compact('data','mobil'));
+    // }
 }

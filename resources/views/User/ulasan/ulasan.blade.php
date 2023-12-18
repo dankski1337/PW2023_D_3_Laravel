@@ -34,8 +34,9 @@
         @auth
             <div class="col d-flex">
                 <div class="me-auto">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ulasanModal">Tambah
-                        Ulasan</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ulasanModal" style="background-color: #003EB7">
+                        Tambah Ulasan
+                    </button>
                 </div>
             </div>
         @endauth
@@ -47,7 +48,8 @@
                             <div class="col d-flex m-2">
                                 <div class="me-auto d-flex align-items-center">
                                     <img src="{{ asset('storage/profileUser/' . $item->user->photo) }}" alt=""
-                                        class="image-fluid rounded-circle" width="32" height="32" style="object-fit: cover">
+                                        class="image-fluid rounded-circle" width="32" height="32"
+                                        style="object-fit: cover">
                                     <p class="ms-2 card-text fs-5">{{ $item->user->nama }}</p>
                                 </div>
                                 <p class="card-text fs-5">{{ $item['tanggal'] }}</p>
@@ -68,7 +70,8 @@
                                 @auth
                                     @if ($item['id_user'] == Auth::user()->id_user)
                                         <button type="button" class="btn ms-auto" data-bs-toggle="modal"
-                                            data-bs-target="#confirmDelete"><i class="fa fa-trash fs-5" style="color: red"></i></button>
+                                            data-bs-target="#confirmDelete"><i class="fa fa-trash fs-5"
+                                                style="color: red"></i></button>
                                     @endif
                                 @endauth
                             </div>
@@ -105,12 +108,12 @@
                         </div>
                         <div class="form-group mb-2">
                             <label for="ulasan">Ulasan</label>
-                            <textarea class="form-control" id="ulasan" rows="3" name="ulasan"></textarea>
+                            <textarea class="form-control" id="ulasan" rows="3" name="ulasan" style="min-height: 100px;"></textarea>
                         </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="submit" class="btn btn-primary" style="background-color: #003EB7">Simpan</button>
                 </div>
                 </form>
             </div>
