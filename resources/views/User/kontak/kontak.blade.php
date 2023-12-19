@@ -18,7 +18,7 @@
         <h1 class="fw-bold my-4 text-center">Kontak JogjaCar</h1>
         <div class="container mt-4">
             <div class="row justify-content-center">
-                <div class="col-lg-9 col-md-9 col-sm-flex mt-2">
+                <div class="col-lg-12 col-md-9 col-sm-flex mt-2">
                     <div class="card">
                         <div class="card-body p-5">
                             <p class="text-center fs-5">

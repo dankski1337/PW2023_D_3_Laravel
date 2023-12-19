@@ -154,4 +154,27 @@ class RentalTransaksiController extends Controller
         $transaksi = RentalTransaksi::with('mobil')->where('id_user', Auth::user()->id_user)->latest()->paginate(10);
         return view('User.transaksi.riwayat-transaksi', compact('transaksi'));
     }
+
+    public function cariTransaksi(Request $request) {
+        $cari = $request->cari;
+        if($cari == null){
+            return redirect()->route('transaksi.riwayat');
+        }
+        $transaksi = RentalTransaksi::where('id_user', Auth::user()->id_user)
+            ->where('id_rental_transaksi', 'like', "%$cari%")
+            ->orWhereHas('mobil', function ($query) use ($cari) {
+                $query->where('model', 'LIKE', "%$cari%");
+            })
+            ->orWhere('lokasi_pengambilan', 'LIKE', "%$cari%")
+            ->orWhere('tanggal_pengambilan', 'LIKE', "%$cari%")
+            ->orWhere('jam_pengambilan', 'LIKE', "%$cari%")
+            ->orWhere('tanggal_pengembalian', 'LIKE', "%$cari%")
+            ->orWhere('jam_pengembalian', 'LIKE', "%$cari%")
+            ->orWhere('status', 'LIKE', "%$cari%")
+            ->orWhere('total_harga', 'LIKE', "%$cari%")
+            ->orWhere('deadline_pembayaran', 'LIKE', "%$cari%")
+            ->paginate(10);
+
+        return view('User.transaksi.riwayat-transaksi', compact('transaksi'));
+    }
 }

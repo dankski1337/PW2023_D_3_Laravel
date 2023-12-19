@@ -80,7 +80,7 @@
                                         onchange="updateProfilePhoto({{ Auth::user()->id_user }})" accept="image/*">
                                 </form>
                             </div>
-                            <table class="table table-borderless mt-2">
+                            <table class="table table-responsive table-borderless mt-2">
                                 <tr>
                                     <td>
                                         Nama

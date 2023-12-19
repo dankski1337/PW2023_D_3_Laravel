@@ -34,7 +34,8 @@
         @auth
             <div class="col d-flex">
                 <div class="me-auto">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ulasanModal" style="background-color: #003EB7">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ulasanModal"
+                        style="background-color: #003EB7">
                         Tambah Ulasan
                     </button>
                 </div>
@@ -52,7 +53,7 @@
                                         style="object-fit: cover">
                                     <p class="ms-2 card-text fs-5">{{ $item->user->nama }}</p>
                                 </div>
-                                <p class="card-text fs-5">{{ $item['tanggal'] }}</p>
+                                <p class="ms-2 card-text fs-6">{{ $item['tanggal'] }}</p>
                             </div>
                             <div class="col d-flex m-2">
                                 <p
@@ -69,9 +70,9 @@
                                 <p class="card-text">{{ $item['ulasan'] }}</p>
                                 @auth
                                     @if ($item['id_user'] == Auth::user()->id_user)
-                                        <button type="button" class="btn ms-auto" data-bs-toggle="modal"
-                                            data-bs-target="#confirmDelete"><i class="fa fa-trash fs-5"
-                                                style="color: red"></i></button>
+                                        <button type="button" class="btn ms-auto delete-button" data-bs-toggle="modal"
+                                            data-bs-target="#confirmDelete" data-index="{{ $item->id_ulasan }}"><i
+                                                class="fa fa-trash fs-5" style="color: red"></i></button>
                                     @endif
                                 @endauth
                             </div>
@@ -100,7 +101,7 @@
                         <div class="form-group mb-2">
                             <label for="rating">Rating</label>
                             <select class="form-select" aria-label="ratingLabel" id="rating" name="rating">
-                                <option selected>Pilih Rating</option>
+                                <option value="" selected>Pilih Rating</option>
                                 <option value="Baik">Baik</option>
                                 <option value="Cukup">Cukup</option>
                                 <option value="Buruk">Buruk</option>
@@ -135,6 +136,7 @@
                     <form action="{{ route('ulasan.destroy', $item->id_ulasan) }}" method="post" class="d-inline">
                         @csrf
                         @method('DELETE')
+                        <input type="hidden" name="id_ulasan" id="indexUlasan">
                         <button type="submit" class="btn btn-danger">Ya</button>
                     </form>
                 </div>
@@ -155,5 +157,15 @@
                 }, 500);
             }
         }, 3500);
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            $('.delete-button').on('click', function() {
+                var index = $(this).data('index');
+                console.log('Index:', index); // Add this line for debugging
+                $('#indexUlasan').val(index);
+            });
+        });
     </script>
 @endsection

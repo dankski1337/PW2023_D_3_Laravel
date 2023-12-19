@@ -84,5 +84,9 @@
                 @endif
             @endforeach
         </div>
+        {{-- pagination --}}
+        <div class="d-flex justify-content-center mt-4">
+            {{ $mobil->links() }}
+        </div>
     </div>
 @endsection

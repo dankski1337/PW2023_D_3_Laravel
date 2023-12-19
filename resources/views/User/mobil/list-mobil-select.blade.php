@@ -154,6 +154,10 @@
                     @endif
                 @endforeach
             </div>
+            {{-- pagination --}}
+            <div class="mt-2 d-flex justify-content-center">
+                {!! $mobil->links() !!}
+            </div>
         </div>
     </div>
     <!-- REQUIRED SCRIPTS -->
