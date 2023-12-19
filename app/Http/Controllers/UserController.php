@@ -90,5 +90,5 @@ class UserController extends Controller
         $user->update($validate);
 
         return redirect('profile')->with('success', 'Data berhasil diubah');
-    }
+    } 
 }

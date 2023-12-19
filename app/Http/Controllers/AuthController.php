@@ -23,7 +23,7 @@ class AuthController extends Controller
             if ($user->role == 'customer') {
                 return redirect('/');
             } else {
-                // return redirect('/admin');
+                return redirect('/admin');
             }
         } else {
             return view('/login');
@@ -41,8 +41,8 @@ class AuthController extends Controller
             $user = Auth::user();
             if ($user->role == 'customer' && $user->status == 1) {
                 return redirect('/');
-                // }else if($user->role == 'admin' && $user->status == 1){
-                //     return redirect('/admin');
+                }else if($user->role == 'admin' && $user->status == 1){
+                    return redirect('/admin');
             } else {
                 Auth::logout();
                 Session::flash('error', 'Akun anda belum aktif, cek email anda untuk mengaktifkan akun');
@@ -80,7 +80,7 @@ class AuthController extends Controller
         $key = Str::random(32);
         $user = User::create([
             'role' => 'customer',
-            'photo' => null,
+            // 'photo' => null,
             'status' => 0,
             'nama' => $request->nama,
             'username' => $request->username,

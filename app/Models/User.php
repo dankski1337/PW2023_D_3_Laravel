@@ -22,7 +22,7 @@ class User extends Authenticatable
     public $timestamps = false;
     protected $fillable = [
         'role',
-        'photo',
+        // 'photo',
         'status',
         'nama',
         'email',

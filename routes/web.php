@@ -38,6 +38,13 @@ Route::get('/', function () {
     // $mobil = \App\Models\Mobil::where('status', 'Tersedia')->get();
     return view('User.landingPage.landing-page');
 });
+
+// admin
+Route::get('/admin', function () {
+    // $mobil = \App\Models\Mobil::where('status', 'Tersedia')->get();
+    return view('Admin.dashboard.admin-dashboard');
+});
+
 Route::get('/kontak', function () {
     return view('User.kontak.kontak');
 });
@@ -70,6 +77,22 @@ Route::group(['middleware' => ['auth', 'cekrole:customer']], function () {
 });
 //route untuk admin
 Route::group(['middleware' => ['auth', 'cekrole:admin']], function () {
+    Route::get('/profileAdmin', function () {
+        return view('Admin.profileAdmin.profile');
+    });
+
+    Route::post('/profile/updatePhoto/{id}', [UserController::class, 'updatePhoto'])->name('profile.updatePhoto');
+    Route::post('/profile/updatePassword/{id}', [UserController::class, 'updatePassword'])->name('profile.updatePassword');
+    Route::post('/profile/updateDataUser/{id}', [UserController::class, 'updateDataUser'])->name('profile.updateDataUser');
+    //Ulasan
+    Route::post('/ulasan/create', [UlasanController::class, 'create'])->name('ulasan.create');
+    Route::delete('/ulasan/delete/{id}', [UlasanController::class, 'destroy'])->name('ulasan.destroy');
+    //Transaksi
+    Route::post('/transaksi/select-mobil', [RentalTransaksiController::class, 'sendTransaksiToSelectMobil'])->name('transaksi.select-mobil');
+    Route::post('/transaksi/confirm', [RentalTransaksiController::class, 'sendTransaksiToConfirm'])->name('transaksi.confirm');
+    Route::get('/transaksi/detail/{id}', [RentalTransaksiController::class, 'detailTransaksi'])->name('transaksi.detail');
+    Route::post('/transaksi/create', [RentalTransaksiController::class, 'createTransaksi'])->name('transaksi.create');
+    Route::get('/transaksi/riwayat', [RentalTransaksiController::class, 'getTransaksiByUser'])->name('transaksi.riwayat');
 
 });
 
@@ -141,7 +164,6 @@ Route::group(['middleware' => ['auth', 'cekrole:admin']], function () {
 // Route::get('/cara-order-with-user', function () {
 //     return view('User.caraOrder.cara-order-with-user');
 // });
-
 // Route::get('/kontak-with-user', function () {
 //     return view('User.kontak.kontak-with-user');
 // });

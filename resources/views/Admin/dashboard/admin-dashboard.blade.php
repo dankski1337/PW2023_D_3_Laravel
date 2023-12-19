@@ -58,7 +58,7 @@
                         <a href="{{ url('/landing-page-admin') }}" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item d-lg-none d-md-block d-sm-block">
-                            <a href="{{ url('/profile') }}" class="nav-link">Profile Admin</a>
+                            <a href="{{ url('/profileAdmin') }}" class="nav-link">Profile Admin</a>
                         </li>
                         <li class="nav-item d-lg-none d-md-block d-sm-block">
                             <a href="{{ url('/dataUser') }}" class="nav-link">Data User</a>
@@ -137,7 +137,6 @@
                 </div>
             </div>
         </div>
-
         <div class="container">
             @yield('content')
         </div>

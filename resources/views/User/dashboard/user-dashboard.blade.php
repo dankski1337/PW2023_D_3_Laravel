@@ -18,30 +18,31 @@
     {{-- favicon --}}
     <link rel="icon" type="image/x-icon" href="{{ asset('images/logo-favicon.png') }}">
 
+    <link rel="stylesheet" href="fonts/icomoon/style.css" />
+
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/bootstrap-datepicker.css" />
+<link rel="stylesheet" href="css/jquery.fancybox.min.css" />
+<link rel="stylesheet" href="css/owl.carousel.min.css" />
+<link rel="stylesheet" href="css/owl.theme.default.min.css" />
+<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css" />
+<link rel="stylesheet" href="css/aos.css" />
+
+<!-- MAIN CSS -->
+<link rel="stylesheet" href="css/style.css" />
+
     <style>
-        @font-face{
-            font-family: 'Inter';
-            src: url("{{ asset('fonts/Inter-Regular.ttf') }}") format("truetype");
-            font-weight: normal;
-        }
-
-        @font-face{
-            font-family: 'Inter';
-            src: url("{{ asset('fonts/Inter-SemiBold.ttf') }}") format("truetype");
-            font-weight: 600;
-        }
-
-        * {
-            font-family: 'Inter', sans-serif;
-        }
-
         body {
-            background-color: #F8F7FC;
+            /* background-color: #F8F7FC; */
         }
 
         a {
             text-decoration: none;
             color: black;
+        }
+
+        * {
+            font-family: 'Poppins', sans-serif;
         }
 
         .app {
@@ -68,12 +69,6 @@
 
         .footer {
             margin-top: auto;
-        }
-
-        .anggota {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
         }
     </style>
 </head>
@@ -177,7 +172,7 @@
                     <div class="container-fluid">
                         <div class="row gx-2 gy-2 mb-auto">
                             <a href="{{ url('/profile') }}" class="h5 btn btn-light">Profile Anda</a>
-                            <a href="{{ route('transaksi.riwayat') }}" class="h5 btn btn-light">Transaksi Anda</a>
+                            <a href="" class="h5 btn btn-light">Transaksi Anda</a>
                         </div>
                         <div class="justify-content-end d-flex">
                             <button type="button"
@@ -213,6 +208,468 @@
         </div>
 
         <footer>
+        <div class="site-section">
+        <div class="container">
+          <h2 class="section-heading"><strong>Cara Pemesanan</strong></h2>
+          <p class="mb-5">Langkah yang mudah untuk menyewa mobil</p>
+
+          <div class="row mb-5">
+            <div class="col-lg-4 mb-4 mb-lg-0">
+              <div class="step">
+                <span>1</span>
+                <div class="step-inner">
+                  <span class="number text-primary">01.</span>
+                  <h3>Login</h3>
+                  <p>
+                  Login akun agar dapat melakukan rental. Jika tidak mempunyai akun, dapat melakukan
+                  register akun terlebih dahulu.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-4 mb-lg-0">
+              <div class="step">
+                <span>2</span>
+                <div class="step-inner">
+                  <span class="number text-primary">02.</span>
+                  <h3>Pilih Lokasi</h3>
+                  <p>
+                  Pilih lokasi pengambilan, tanggal pengambilan, jam pengambilan, tanggal pengembalian,
+                  jam pengembalian. Setelah itu klik tombol "Lanjutkan" untuk memilih mobil
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-4 mb-lg-0">
+              <div class="step">
+                <span>3</span>
+                <div class="step-inner">
+                  <span class="number text-primary">03.</span>
+                  <h3>Pilih Mobil</h3>
+                  <p>
+                  Pilih mobil rental yang tersedia.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-4 mb-lg-0">
+              <div class="step">
+                <span>4</span>
+                <div class="step-inner">
+                  <span class="number text-primary">04.</span>
+                  <h3>Pilih Mobil</h3>
+                  <p>
+                  Pilih mobil rental yang tersedia.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-4 mb-lg-0">
+              <div class="step">
+                <span>5</span>
+                <div class="step-inner">
+                  <span class="number text-primary">05.</span>
+                  <h3>Pembayaran</h3>
+                  <p>
+                  Lakukan pembayaran sebelum deadline yang telah ditentukan.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="site-section">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-7 text-center order-lg-2">
+              <div class="img-wrap-1 mb-5">
+              <img height="200" src="{{ asset('images/avanza.png') }}" alt="logo">
+              </div>
+            </div>
+            <div class="col-lg-4 ml-auto order-lg-1">
+              <h3 class="mb-4 section-heading">
+                <strong
+                  >Kami berkomitmen untuk memberikan pelayanan terbaik kepada Pelanggan</strong
+                >
+              </h3>
+              <p class="mb-5">
+              JOGJACAR merupakan pilihan utama dalam rental mobil di Yogyakarta karena komitmennya 
+              terhadap kualitas terbaik dalam layanan. Dengan armada mobil yang selalu terjaga, staf 
+              yang profesional dan ramah, serta transparansi dalam biaya dan prosedur sewa, JOGJACAR 
+              telah membangun reputasi yang kokoh sebagai penyedia layanan terbaik yang memberikan pengalaman 
+              menyewa mobil yang tak tertandingi di Yogyakarta.
+              </p>
+              <p><a href="#" class="btn btn-primary">Kontak Kami</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="site-section bg-white">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-7">
+              <h2 class="section-heading"><strong>Daftar Mobil</strong></h2>
+              <p class="mb-5">
+                
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="listing d-block align-items-stretch">
+                <div class="listing-img h-100 mr-4">
+                  <img height="100"src="{{ asset('images/mitshubishi_xpander.png') }}" alt="mobil">
+                </div>
+                <div class="listing-contents h-100">
+                  <h3>Mitsubishi Xpander</h3>
+                  <div class="rent-price">
+                    <strong>Rp900.000</strong><span class="mx-1">/</span>hari
+                  </div>
+                  <div class="d-block d-md-flex mb-3 border-bottom pb-3">
+                    <div class="listing-feature pr-4">
+                      <span class="caption">Bahan Bakar:</span>
+                      <span class="number">4</span>
+                    </div>
+                    <div class="listing-feature pr-4">
+                      <span class="caption">Transmisi:</span>
+                      <span class="number">4</span>
+                    </div>
+                    <div class="listing-feature pr-4">
+                      <span class="caption">Jumlah Kursi:</span>
+                      <span class="number">4</span>
+                    </div>
+                    <div class="listing-feature pr-4">
+                      <span class="caption">Tahun Produksi:</span>
+                      <span class="number">4</span>
+                    </div>
+                    <div class="listing-feature pr-4">
+                      <span class="caption">Warna:</span>
+                      <span class="number">4</span>
+                    </div>
+                  </div>
+                  <div>
+                    <p>
+                      m ipsum dolor sit amet, consectetur adipisicing elit.
+                      Quos eos at eum, voluptatem quibusdam.Lore
+                    </p>
+                    <p>
+                      <a href="#" class="btn btn-primary btn-sm">Sewa Sekarang</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="listing d-block align-items-stretch">
+                <div class="listing-img h-100 mr-4">
+                <img height="100"src="{{ asset('images/inova_reborn.png') }}" alt="mobil">
+                </div>
+                <div class="listing-contents h-100">
+                  <h3>Innova Reborn</h3>
+                  <div class="rent-price">
+                    <strong>Rp450.000</strong><span class="mx-1">/</span>day
+                  </div>
+                  <div class="d-block d-md-flex mb-3 border-bottom pb-3">
+                    <div class="listing-feature pr-4">
+                      <span class="caption">Bahan Bakar:</span>
+                      <span class="number">4</span>
+                    </div>
+                    <div class="listing-feature pr-4">
+                      <span class="caption">Transmisi:</span>
+                      <span class="number">4</span>
+                    </div>
+                    <div class="listing-feature pr-4">
+                      <span class="caption">Jumlah Kursi:</span>
+                      <span class="number">4</span>
+                    </div>
+                    <div class="listing-feature pr-4">
+                      <span class="caption">Tahun Produksi:</span>
+                      <span class="number">4</span>
+                    </div>
+                    <div class="listing-feature pr-4">
+                      <span class="caption">Warna:</span>
+                      <span class="number">4</span>
+                    </div>
+                  </div>
+                  <div>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      Quos eos at eum, voluptatem quibusdam.
+                    </p>
+                    <p>
+                      <a href="#" class="btn btn-primary btn-sm">Rent Now</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="listing d-block align-items-stretch">
+                <div class="listing-img h-100 mr-4">
+                  <img height="100"src="{{ asset('images/fortuner.png') }}" alt="mobil">
+                </div>
+                <div class="listing-contents h-100">
+                  <h3>Fortuner GR Sport</h3>
+                  <div class="rent-price">
+                    <strong>Rp1.700.000</strong><span class="mx-1">/</span>day
+                  </div>
+                  <div class="d-block d-md-flex mb-3 border-bottom pb-3">
+                    <div class="listing-feature pr-4">
+                      <span class="caption">Bahan Bakar:</span>
+                      <span class="number">4</span>
+                    </div>
+                    <div class="listing-feature pr-4">
+                      <span class="caption">Transmisi:</span>
+                      <span class="number">4</span>
+                    </div>
+                    <div class="listing-feature pr-4">
+                      <span class="caption">Jumlah Kursi:</span>
+                      <span class="number">4</span>
+                    </div>
+                    <div class="listing-feature pr-4">
+                      <span class="caption">Tahun Produksi:</span>
+                      <span class="number">4</span>
+                    </div>
+                    <div class="listing-feature pr-4">
+                      <span class="caption">Warna:</span>
+                      <span class="number">4</span>
+                    </div>
+                  </div>
+                  <div>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      Quos eos at eum, voluptatem quibusdam.
+                    </p>
+                    <p>
+                      <a href="#" class="btn btn-primary btn-sm">Rent Now</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="listing d-block align-items-stretch">
+                <div class="listing-img h-100 mr-4">
+                <img height="100"src="{{ asset('images/alphard.png') }}" alt="mobil">
+                </div>
+                <div class="listing-contents h-100">
+                  <h3>Alphard</h3>
+                  <div class="rent-price">
+                    <strong>Rp3.200.000</strong><span class="mx-1">/</span>day
+                  </div>
+                  <div class="d-block d-md-flex mb-3 border-bottom pb-3">
+                  <div class="d-block d-md-flex mb-3 border-bottom pb-3">
+                    <div class="listing-feature pr-4">
+                      <span class="caption">Bahan Bakar:</span>
+                      <span class="number">4</span>
+                    </div>
+                    <div class="listing-feature pr-4">
+                      <span class="caption">Transmisi:</span>
+                      <span class="number">4</span>
+                    </div>
+                    <div class="listing-feature pr-4">
+                      <span class="caption">Jumlah Kursi:</span>
+                      <span class="number">4</span>
+                    </div>
+                    <div class="listing-feature pr-4">
+                      <span class="caption">Tahun Produksi:</span>
+                      <span class="number">4</span>
+                    </div>
+                    <div class="listing-feature pr-4">
+                      <span class="caption">Warna:</span>
+                      <span class="number">4</span>
+                    </div>
+                  </div>
+                  <div>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      Quos eos at eum, voluptatem quibusdam.
+                    </p>
+                    <p>
+                      <a href="#" class="btn btn-primary btn-sm">Rent Now</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="listing d-block align-items-stretch">
+                <div class="listing-img h-100 mr-4">
+                <img height="100"src="{{ asset('images/hiace_comuter.png') }}" alt="mobil">
+                </div>
+                <div class="listing-contents h-100">
+                  <h3>Hiace Commuter</h3>
+                  <div class="rent-price">
+                    <strong>Rp. 1.300.000</strong><span class="mx-1">/</span>day
+                  </div>
+                  <div class="d-block d-md-flex mb-3 border-bottom pb-3">
+                    <div class="listing-feature pr-4">
+                      <span class="caption">Luggage:</span>
+                      <span class="number">8</span>
+                    </div>
+                    <div class="listing-feature pr-4">
+                      <span class="caption">Doors:</span>
+                      <span class="number">4</span>
+                    </div>
+                    <div class="listing-feature pr-4">
+                      <span class="caption">Passenger:</span>
+                      <span class="number">4</span>
+                    </div>
+                  </div>
+                  <div>
+                    <p>
+                      30z
+                    </p>
+                    <p>
+                      <a href="#" class="btn btn-primary btn-sm">Rent Now</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="listing d-block align-items-stretch">
+                <div class="listing-img h-100 mr-4">
+                <img height="100"src="{{ asset('images/elf_long.png') }}" alt="mobil">
+                </div>
+                <div class="listing-contents h-100">
+                  <h3>Elf Long</h3>
+                  <div class="rent-price">
+                    <strong>Rp. 1.400.000</strong><span class="mx-1">/</span>day
+                  </div>
+                  <div class="d-block d-md-flex mb-3 border-bottom pb-3">
+                  <div class="d-block d-md-flex mb-3 border-bottom pb-3">
+                    <div class="listing-feature pr-4">
+                      <span class="caption">Bahan Bakar:</span>
+                      <span class="number">4</span>
+                    </div>
+                    <div class="listing-feature pr-4">
+                      <span class="caption">Transmisi:</span>
+                      <span class="number">4</span>
+                    </div>
+                    <div class="listing-feature pr-4">
+                      <span class="caption">Jumlah Kursi:</span>
+                      <span class="number">4</span>
+                    </div>
+                    <div class="listing-feature pr-4">
+                      <span class="caption">Tahun Produksi:</span>
+                      <span class="number">4</span>
+                    </div>
+                    <div class="listing-feature pr-4">
+                      <span class="caption">Warna:</span>
+                      <span class="number">4</span>
+                    </div>
+                  </div>
+                  <div>
+                    <p>
+                      10 tersedia.
+                    </p>
+                    <p>
+                      <a href="#" class="btn btn-primary btn-sm">Rent Now</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="site-section bg-white">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-7">
+              <h2 class="section-heading"><strong>Ulasan</strong></h2>
+              <p class="mb-5">
+                Apa kata mereka
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 mb-4 mb-lg-0">
+              <div class="testimonial-2">
+                <blockquote class="mb-4">
+                  <p>
+                    "Saya sangat terkesan dengan layanan yang diberikan oleh JogjaCar. Mereka memiliki staf yang ramah dan profesional. Saat saya melakukan pemesanan, mereka dengan sabar menjelaskan semua detail dan memberikan saran yang berguna. Selain itu, mobil yang saya sewa dalam kondisi yang sangat baik dan bersih. Saya pasti akan merekomendasikan JogjaCar kepada teman dan keluarga saya!"
+                  </p>
+                </blockquote>
+                <div class="d-flex v-card align-items-center">
+                  <img
+                    src="{{ asset('images/jihyo.jpg') }}"
+                    alt="Image"
+                    class="img-fluid mr-3"
+                  />
+                  <div class="author-name">
+                    <span class="d-block">Park Jihyo</span>
+                    <span>Chef</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-4 mb-lg-0">
+              <div class="testimonial-2">
+                <blockquote class="mb-4">
+                  <p>
+                    "Pilihan mobil yang ditawarkan oleh JogjaCar sangat luas dan memuaskan. Saya dapat dengan mudah menemukan mobil yang sesuai dengan kebutuhan saya. Selain itu, mobil yang saya sewa terawat dengan baik dan dalam kondisi prima. Pengalaman menyewa mobil dengan JogjaCar membuat perjalanan saya menjadi lebih nyaman dan menyenangkan. Terima kasih
+                  </p>
+                </blockquote>
+                <div class="d-flex v-card align-items-center">
+                  <img
+                    src="{{ asset('images/momo.jpg') }}"
+                    alt="Image"
+                    class="img-fluid mr-3"
+                  />
+                  <div class="author-name">
+                    <span class="d-block">Hirai Momo</span>
+                    <span>Traveler</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 mb-4 mb-lg-0">
+              <div class="testimonial-2">
+                <blockquote class="mb-4">
+                  <p>
+                    "Pemesanan mobil di JogjaCar sangat mudah dan efisien. Situs web mereka sangat user-friendly dan memudahkan saya dalam memilih mobil serta melihat ketersediaan. Proses reservasi pun cepat dan tanpa masalah. Ketika saya tiba di lokasi, mobil yang saya pesan sudah siap untuk digunakan. Saya merasa sangat puas dengan pengalaman menyewa mobil bersama JogjaCar"
+                  </p>
+                </blockquote>
+                <div class="d-flex v-card align-items-center">
+                  <img
+                    src="{{ asset('images/sana.jpg') }}"
+                    alt="Image"
+                    class="img-fluid mr-3"
+                  />
+                  <div class="author-name">
+                    <span class="d-block">Sana Pie</span>
+                    <span>Customer</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="site-section bg-primary py-5">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-7 mb-4 mb-md-0">
+              <h2 class="mb-0 text-white">Tunggu Apa Lagi?</h2>
+              <p class="mb-0 opa-7">
+                Segera Daftar dan Sewa Mobil di JOGJACAR sekarang Juga!!!!
+            </div>
+            <div class="col-lg-5 text-md-right">
+              <a href="#" class="btn btn-primary btn-white">Sewa Sekarang</a>
+            </div>
+          </div>
+        </div>
+      </div>
             <div class="container-footer mt-5">
                 <div class="display-footer bg-white">
                     <div class="row pt-5 pb-5" style="max-width: 100%;">
@@ -230,19 +687,16 @@
                             </p>
                         </div>
                         <div class="col-lg 6" style="padding-left: 100px;">
-                            <h5><strong>Kelompok 3 Pemrograman Web D</strong></h5>
-                            <p class="fw-bold">Tim Kami :</p>
-                            <div class="anggota">
-                                <a href="https://github.com/dankski1337" class="fw-semibold"><i class="bi bi-github"></i> Simon Andrian Agis</a>
-                                <a href="https://github.com/zeedvyy" class="fw-semibold"><i class="bi bi-github"></i> Azegdita Vanaya Lerrick</a>
-                                <a href="https://github.com/marcellaav" class="fw-semibold"><i class="bi bi-github"></i> Marcella Averina</a>
-                            </div>
+                            <p><strong>Layanan Pengaduan Konsumen</strong></p>
+                            <p><strong>PT JogjaTrans</strong></p>
+                            <kaifuku@halodoc.com>l. Dirgantara I No.15, Kabupaten Sleman, Atma Jaya Yogyakarta,
+                                Yogyakarta</p>
                         </div>
                     </div>
                 </div>
                 <div class="container-footer-bottom" style="background-color:#003EB7;">
                     <div class="text-light text-center py-2 container pt-3">
-                        <p>&copy; 2023 JogjaCar</p>
+                        <p>&copy; 2023 Jogja Car</p>
                         <p>Kelompok 3 Pemrograman Web D</p>
                     </div>
                 </div>
@@ -257,6 +711,19 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
+     <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/aos.js"></script>
+
+    <script src="js/main.js"></script>
 </body>
 
 </html>

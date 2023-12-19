@@ -21,6 +21,11 @@ return new class extends Migration
             $table->string('password');
             $table->text('alamat');
             $table->string('no_telp');
+            $table->string('verify_key');
+            $table->integer('active')->nullable();
+            $table->rememberToken();
+            $table->timestamps();
+            $table->timestamp('email_verified_at')->nullable();
         });
     }
 
