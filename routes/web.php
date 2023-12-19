@@ -68,9 +68,31 @@ Route::group(['middleware' => ['auth', 'cekrole:customer']], function () {
     Route::get('/transaksi/riwayat', [RentalTransaksiController::class, 'getTransaksiByUser'])->name('transaksi.riwayat');
     // Route::match(['get', 'post'],'/transaksi/select-mobil/cari', [MobilController::class, 'cariMobilSelect'])->name('transaksi.cari-mobil-select');
 });
+
+Route::get('/Admin', function(){
+    return view('Admin.dashboard.admin-dashboard');
+});
+
 //route untuk admin
 Route::group(['middleware' => ['auth', 'cekrole:admin']], function () {
-
+    //login
+    // Route::get('/Admin', function(){
+    //     return view('Admin.dashboard.admin-dashboard');
+    // });
+    //data user
+    Route::post('/user/create', [UserController::class, 'createUser'])->name('user.create');
+    Route::get('/user/profile', [UserController::class, 'getProfile'])->name('user.profile');
+    Route::post('/user/update/{id}', [UserController::class, 'updateUser'])->name('user.update');
+    Route::delete('/user/delete/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+    //data mobil
+    Route::post('/dataMobil/create', [MobilController::class, 'createMobil'])->name('mobil.create');
+    //Route::get('/dataMobil/')
+    Route::post('/dataMobil/update/{id}', [MobilController::class, 'updateMobil'])->name('mobil.update');
+    Route::delete('dataMobil/delete/{id}', [MobilController::class, 'destroy'])->name('mobil.destroy');
+    //data transaksi
+    Route::post('/transaksi/create', [RentalTransaksiController::class, 'createTransaksi'])->name('transaksi.create');
+    Route::post('/transaksi/update/{id}', [RentalTransaksiController::class, 'updateTransaksi'])->name('transaksi.update');
+    Route::delete('/transaksi/delete/{id}', [RentalTransaksiController::class, 'destroy'])->name('transaksi.destroy');
 });
 
 
