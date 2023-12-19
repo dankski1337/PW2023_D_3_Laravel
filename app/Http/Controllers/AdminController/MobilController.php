@@ -67,7 +67,6 @@ class MobilController extends AdminController{
         $mobil = Mobil::find($id);
         return view('Admin.dataMobil.edit-mobil');
     }
-        
 
     /**
      * delete
