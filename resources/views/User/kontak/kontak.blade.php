@@ -16,6 +16,14 @@
 
     <div class="container-detail">
         <h1 class="fw-bold my-4 text-center">Kontak JogjaCar</h1>
+        {{-- text to go back to home --}}
+        <a href="{{ url('/') }}" class="ms-2">
+            <i class="fa fa-arrow-left"></i>
+            Kembali ke Home
+        </a>
+        <div class="col d-flex">
+            <div class="me-auto">
+            </div>
         <div class="container mt-4">
             <div class="row justify-content-center">
                 <div class="col-lg-12 col-md-9 col-sm-flex mt-2">

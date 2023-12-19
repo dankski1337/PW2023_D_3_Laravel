@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminController\MasterAdminController;
+use App\Http\Controllers\AdminController\MasterMobilController;
+use App\Http\Controllers\AdminController\MasterTransaksiController;
+use App\Http\Controllers\AdminController\MasterUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MobilController;
@@ -38,6 +42,10 @@ Route::get('/', function () {
     // $mobil = \App\Models\Mobil::where('status', 'Tersedia')->get();
     return view('User.landingPage.landing-page');
 });
+
+// admin
+
+
 Route::get('/kontak', function () {
     return view('User.kontak.kontak');
 });
@@ -71,6 +79,31 @@ Route::group(['middleware' => ['auth', 'cekrole:customer']], function () {
 });
 //route untuk admin
 Route::group(['middleware' => ['auth', 'cekrole:admin']], function () {
+    Route::get('/admin-landing', [MasterAdminController::class, 'adminLogin'])->name('admin-landing');
+    //data user
+    Route::get('/data-user', [MasterUserController::class, 'indexUser'])->name('data-user');
+    Route::get('/data-user/cari', [MasterUserController::class, 'cariUser'])->name('cari-data-user');
+
+    //data mobil
+    Route::get('/data-mobil', [MasterMobilController::class, 'indexMobil'])->name('data-mobil');
+    Route::get('/data-mobil/cari', [MasterMobilController::class, 'cariMobil'])->name('cari-data-mobil');
+
+    //data transaksi
+    Route::get('/data-transaksi', [MasterTransaksiController::class, 'indexTransaksi'])->name('data-transaksi');
+    Route::get('/data-transaksi/cari', [MasterTransaksiController::class, 'cariTransaksi'])->name('cari-data-transaksi');
+
+    // Route::post('/profile/updatePhoto/{id}', [UserController::class, 'updatePhoto'])->name('profile.updatePhoto');
+    // Route::post('/profile/updatePassword/{id}', [UserController::class, 'updatePassword'])->name('profile.updatePassword');
+    // Route::post('/profile/updateDataUser/{id}', [UserController::class, 'updateDataUser'])->name('profile.updateDataUser');
+    // //Ulasan
+    // Route::post('/ulasan/create', [UlasanController::class, 'create'])->name('ulasan.create');
+    // Route::delete('/ulasan/delete/{id}', [UlasanController::class, 'destroy'])->name('ulasan.destroy');
+    // //Transaksi
+    // Route::post('/transaksi/select-mobil', [RentalTransaksiController::class, 'sendTransaksiToSelectMobil'])->name('transaksi.select-mobil');
+    // Route::post('/transaksi/confirm', [RentalTransaksiController::class, 'sendTransaksiToConfirm'])->name('transaksi.confirm');
+    // Route::get('/transaksi/detail/{id}', [RentalTransaksiController::class, 'detailTransaksi'])->name('transaksi.detail');
+    // Route::post('/transaksi/create', [RentalTransaksiController::class, 'createTransaksi'])->name('transaksi.create');
+    // Route::get('/transaksi/riwayat', [RentalTransaksiController::class, 'getTransaksiByUser'])->name('transaksi.riwayat');
 
 });
 
@@ -142,7 +175,6 @@ Route::group(['middleware' => ['auth', 'cekrole:admin']], function () {
 // Route::get('/cara-order-with-user', function () {
 //     return view('User.caraOrder.cara-order-with-user');
 // });
-
 // Route::get('/kontak-with-user', function () {
 //     return view('User.kontak.kontak-with-user');
 // });

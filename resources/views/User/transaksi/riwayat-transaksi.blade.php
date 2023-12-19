@@ -32,7 +32,7 @@
                     <button class="btn btn-primary cariBtn" type="submit">Cari</button>
                 </form>
             </div>
-            <table class="table-responsive">
+            <table class="table table-responsive">
                 <thead>
                     <tr>
                         <th scope="col">#</th>

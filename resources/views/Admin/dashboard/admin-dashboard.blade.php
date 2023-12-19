@@ -49,28 +49,29 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item d-lg-block d-md-none d-sm-none">
+                        <li class="nav-item d-lg-block d-md-none d-sm-none d-none">
                             <a class="fw-bold">
-                                <img height="30" src="{{ asset('images/logo.png') }}" alt="logo">
+                                <img height="30" src="{{ asset('images/logo.png') }}"alt="logo">
                             </a>
                         </li>
-                         <li class="nav-item d-lg-none d-md-block d-sm-block">
-                        <a href="{{ url('/landing-page-admin') }}" class="nav-link">Home</a>
-                        </li>
                         <li class="nav-item d-lg-none d-md-block d-sm-block">
+                            <a href="{{ route('admin-landing') }}" class="nav-link btn btn-light">Home</a>
+                        </li>
+                        {{-- <li class="nav-item d-lg-none d-md-block d-sm-block">
                             <a href="{{ url('/profile') }}" class="nav-link">Profile Admin</a>
+                        </li> --}}
+                        <li class="nav-item d-lg-none d-md-block d-sm-block">
+                            <a href="{{ route('data-user') }}" class="nav-link btn btn-light">Data User</a>
                         </li>
                         <li class="nav-item d-lg-none d-md-block d-sm-block">
-                            <a href="{{ url('/dataUser') }}" class="nav-link">Data User</a>
+                            <a href="{{ route('data-mobil') }}" class="nav-link btn btn-light">Data Mobil</a>
                         </li>
                         <li class="nav-item d-lg-none d-md-block d-sm-block">
-                            <a href="{{ url('/dataMobil') }}" class="nav-link">Data Mobil</a>
+                            <a href="{{ route('data-transaksi') }}" class="nav-link btn btn-light">Data Transaksi</a>
                         </li>
+                        <hr>
                         <li class="nav-item d-lg-none d-md-block d-sm-block">
-                            <a href="{{ url('/dataTransaksi') }}" class="nav-link">Data Transaksi</a>
-                        </li>
-                        <li class="nav-item d-lg-none d-md-block d-sm-block">
-                            <a href="{{ url('/landing-no-user') }}" class="text-danger fw-bold">Log Out</a>
+                            <a href="{{ route('logout') }}" class="nav-link text-white fw-bold btn btn-danger bg-danger">Log Out</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav d-none d-md-flex">
@@ -113,24 +114,17 @@
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <hr>
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title px-2 fs-30">
-                    <img src="{{ asset('images/profilepic.png') }}" alt="Profile pic"
-                        class="profile-pic rounded-circle"> admin1
-                </h5>
-            </div>
-            <hr>
             <div class="offcanvas-body">
                 <div class="container-fluid">
                     <div class="row gx-2 gy-2 mb-auto">
-                        <a href="{{ url('/landing-page-admin') }}" class="h5 btn btn-light">Home</a>
-                        <a href="{{ url('/profileAdmin') }}" class="h5 btn btn-light">Profile</a>
-                        <a href="{{ url('/dataUser') }}" class="h5 btn btn-light">Data User</a>
-                        <a href="{{ url('/dataMobil') }}" class="h5 btn btn-light">Data Mobil</a>
-                        <a href="{{ url('/dataTransaksi') }}" class="h5 btn btn-light">Data Transaksi</a>
+                        <a href="{{ route('admin-landing') }}" class="h5 btn btn-light">Home</a>
+                        {{-- <a href="{{ url('/profileAdmin') }}" class="h5 btn btn-light">Profile</a> --}}
+                        <a href="{{ route('data-user') }}" class="h5 btn btn-light">Data User</a>
+                        <a href="{{ route('data-mobil') }}" class="h5 btn btn-light">Data Mobil</a>
+                        <a href="{{ route('data-transaksi') }}" class="h5 btn btn-light">Data Transaksi</a>
                     </div>
                     <div class="justify-content-end d-flex">
-                        <a href="{{ url('/landing-no-user') }}"
+                        <a href="{{ route('logout') }}"
                             class="btn btn-danger align-items-end d-flex position-absolute bottom-0 mb-2">Log
                             Out</a>
                     </div>

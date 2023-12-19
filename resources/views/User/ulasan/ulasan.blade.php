@@ -160,7 +160,7 @@
     </script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             $('.delete-button').on('click', function() {
                 var index = $(this).data('index');
                 console.log('Index:', index); // Add this line for debugging

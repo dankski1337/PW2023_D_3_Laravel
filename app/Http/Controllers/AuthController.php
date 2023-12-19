@@ -13,6 +13,8 @@ use App\Mail\VerifyMail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\ValidationException;
 use App\Models\Mobil;
+use App\Models\RentalTransaksi;
+use App\Models\Ulasan;
 
 class AuthController extends Controller
 {
@@ -41,8 +43,8 @@ class AuthController extends Controller
             $user = Auth::user();
             if ($user->role == 'customer' && $user->status == 1) {
                 return redirect('/');
-                // }else if($user->role == 'admin' && $user->status == 1){
-                //     return redirect('/admin');
+                }else if($user->role == 'admin' && $user->status == 1){
+                    return redirect('admin-landing');
             } else {
                 Auth::logout();
                 Session::flash('error', 'Akun anda belum aktif, cek email anda untuk mengaktifkan akun');

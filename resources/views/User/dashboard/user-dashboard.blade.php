@@ -53,6 +53,7 @@
         }
 
         footer {
+            margin-top: auto;
             position: relative;
             z-index: 1;
         }
@@ -100,12 +101,12 @@
                         <li class="nav-item">
                             <a class="nav-link btn" href="{{ route('list-mobil') }}">Daftar Mobil</a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link btn" href="{{ url('/kontak') }}">Kontak</a>
-                        </li>
-                        <li class="nav-item">
+                        </li> --}}
+                        {{-- <li class="nav-item">
                             <a class="nav-link btn" href="{{ url('/cara-order') }}">Cara Order</a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a class="nav-link btn" href="{{ route('ulasan') }}">Ulasan</a>
                         </li>
