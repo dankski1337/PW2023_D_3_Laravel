@@ -23,6 +23,8 @@ use App\Http\Controllers\UserController;
 */
 
 //Auth Route
+Route::get('/login-check', [AuthController::class, 'login'])->middleware('auth')->name('login');
+
 //Login
 Route::get('/login', function () {
     return view('Auth.login');
@@ -67,7 +69,7 @@ Route::group(['middleware' => ['auth', 'cekrole:customer']], function () {
     Route::post('/profile/updateDataUser/{id}', [UserController::class, 'updateDataUser'])->name('profile.updateDataUser');
     //Ulasan
     Route::post('/ulasan/create', [UlasanController::class, 'create'])->name('ulasan.create');
-    Route::post('/ulasan/delete', [UlasanController::class, 'destroy'])->name('ulasan.destroy');
+    Route::delete('/ulasan/delete/{id}', [UlasanController::class, 'destroy'])->name('ulasan.destroy');
     //Transaksi
     Route::post('/transaksi/select-mobil', [RentalTransaksiController::class, 'sendTransaksiToSelectMobil'])->name('transaksi.select-mobil');
     Route::post('/transaksi/confirm', [RentalTransaksiController::class, 'sendTransaksiToConfirm'])->name('transaksi.confirm');
@@ -83,14 +85,29 @@ Route::group(['middleware' => ['auth', 'cekrole:admin']], function () {
     //data user
     Route::get('/data-user', [MasterUserController::class, 'indexUser'])->name('data-user');
     Route::get('/data-user/cari', [MasterUserController::class, 'cariUser'])->name('cari-data-user');
+    Route::get('/data-user/edit/{id_user}', [MasterUserController::class, 'editUser'])->name('edit-data-user');
+    Route::put('/data-user/edit/actionEdit/{id_user}', [MasterUserController::class, 'actionEditUser'])->name('action-edit-data-user');
+    Route::delete('/data-user/delete/{id_user}', [MasterUserController::class, 'deleteUser'])->name('delete-data-user');
 
     //data mobil
     Route::get('/data-mobil', [MasterMobilController::class, 'indexMobil'])->name('data-mobil');
     Route::get('/data-mobil/cari', [MasterMobilController::class, 'cariMobil'])->name('cari-data-mobil');
+    Route::get('/data-mobil/tambah', [MasterMobilController::class, 'tambahMobil'])->name('tambah-data-mobil');
+    Route::post('/data-mobil/tambah/actionTambah', [MasterMobilController::class, 'actionTambahMobil'])->name('action-tambah-data-mobil');
+    Route::get('/data-mobil/edit/{id_mobil}', [MasterMobilController::class, 'editMobil'])->name('edit-data-mobil');
+    Route::put('/data-mobil/edit/actionEdit/{id_mobil}', [MasterMobilController::class, 'actionEditMobil'])->name('action-edit-data-mobil');
+    Route::put('/data-mobil/edit/actionEditStatus/{id_mobil}', [MasterMobilController::class, 'actionEditStatusMobil'])->name('action-edit-status-data-mobil');
+    Route::delete('/data-mobil/delete/{id_mobil}', [MasterMobilController::class, 'deleteMobil'])->name('delete-data-mobil');
 
     //data transaksi
     Route::get('/data-transaksi', [MasterTransaksiController::class, 'indexTransaksi'])->name('data-transaksi');
     Route::get('/data-transaksi/cari', [MasterTransaksiController::class, 'cariTransaksi'])->name('cari-data-transaksi');
+    Route::get('/data-transaksi/tambah', [MasterTransaksiController::class, 'tambahTransaksi'])->name('tambah-data-transaksi');
+    Route::post('data-transaksi/tambah/actionTambah', [MasterTransaksiController::class, 'actionTambahTransaksi'])->name('action-tambah-data-transaksi');
+    Route::get('/data-transaksi/edit/{id_rental_transaksi}', [MasterTransaksiController::class, 'editTransaksi'])->name('edit-data-transaksi');
+    Route::put('/data-transaksi/edit/actionEdit/{id_rental_transaksi}', [MasterTransaksiController::class, 'actionEditTransaksi'])->name('action-edit-data-transaksi');
+    Route::put('/data-transaksi/edit/actionEditStatusTransaksi/{id_rental_transaksi}', [MasterTransaksiController::class, 'actionEditStatusTransaksi'])->name('action-edit-status-data-transaksi');
+    Route::delete('/data-transaksi/delete/{id_rental_transaksi}', [MasterTransaksiController::class, 'deleteTransaksi'])->name('delete-data-transaksi');
 
     // Route::post('/profile/updatePhoto/{id}', [UserController::class, 'updatePhoto'])->name('profile.updatePhoto');
     // Route::post('/profile/updatePassword/{id}', [UserController::class, 'updatePassword'])->name('profile.updatePassword');

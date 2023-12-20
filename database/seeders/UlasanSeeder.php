@@ -15,10 +15,10 @@ class UlasanSeeder extends Seeder
     {
         // create ulasan data
         DB::table('ulasans')->insert([
-            'id_user' => 1,
+            'id_user' => 2,
             'tanggal' => '2021-01-01',
             'rating' => 'Cukup',
-            'ulasan' => 'Mantap',
+            'ulasan' => 'Pelayanan cukup baik, tapi mobilnya kurang bagus',
             'created_at' => '2021-01-01 00:00:00',
         ]);
     }

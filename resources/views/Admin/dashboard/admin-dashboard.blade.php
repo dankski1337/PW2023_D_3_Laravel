@@ -55,19 +55,19 @@
                             </a>
                         </li>
                         <li class="nav-item d-lg-none d-md-block d-sm-block">
-                            <a href="{{ route('admin-landing') }}" class="nav-link btn btn-light">Home</a>
+                            <a href="{{ route('admin-landing') }}" class="nav-link btn btn-light"><i class="fa fa-home"></i> Home</a>
                         </li>
                         {{-- <li class="nav-item d-lg-none d-md-block d-sm-block">
                             <a href="{{ url('/profile') }}" class="nav-link">Profile Admin</a>
                         </li> --}}
                         <li class="nav-item d-lg-none d-md-block d-sm-block">
-                            <a href="{{ route('data-user') }}" class="nav-link btn btn-light">Data User</a>
+                            <a href="{{ route('data-user') }}" class="nav-link btn btn-light"><i class="fa fa-person"></i> Data User</a>
                         </li>
                         <li class="nav-item d-lg-none d-md-block d-sm-block">
-                            <a href="{{ route('data-mobil') }}" class="nav-link btn btn-light">Data Mobil</a>
+                            <a href="{{ route('data-mobil') }}" class="nav-link btn btn-light"><i class="fa fa-car"></i> Data Mobil</a>
                         </li>
                         <li class="nav-item d-lg-none d-md-block d-sm-block">
-                            <a href="{{ route('data-transaksi') }}" class="nav-link btn btn-light">Data Transaksi</a>
+                            <a href="{{ route('data-transaksi') }}" class="nav-link btn btn-light"><i class="fa fa-file-invoice"></i> Data Transaksi</a>
                         </li>
                         <hr>
                         <li class="nav-item d-lg-none d-md-block d-sm-block">
@@ -117,16 +117,16 @@
             <div class="offcanvas-body">
                 <div class="container-fluid">
                     <div class="row gx-2 gy-2 mb-auto">
-                        <a href="{{ route('admin-landing') }}" class="h5 btn btn-light">Home</a>
+                        <a href="{{ route('admin-landing') }}" class="h5 btn btn-light"><i class="fa fa-home"></i> Home</a>
                         {{-- <a href="{{ url('/profileAdmin') }}" class="h5 btn btn-light">Profile</a> --}}
-                        <a href="{{ route('data-user') }}" class="h5 btn btn-light">Data User</a>
-                        <a href="{{ route('data-mobil') }}" class="h5 btn btn-light">Data Mobil</a>
-                        <a href="{{ route('data-transaksi') }}" class="h5 btn btn-light">Data Transaksi</a>
+                        <a href="{{ route('data-user') }}" class="h5 btn btn-light"><i class="fa fa-person"></i> Data User</a>
+                        <a href="{{ route('data-mobil') }}" class="h5 btn btn-light"><i class="fa fa-car"></i> Data Mobil</a>
+                        <a href="{{ route('data-transaksi') }}" class="h5 btn btn-light"><i class="fa fa-file-invoice"></i> Data Transaksi</a>
                     </div>
                     <div class="justify-content-end d-flex">
                         <a href="{{ route('logout') }}"
-                            class="btn btn-danger align-items-end d-flex position-absolute bottom-0 mb-2">Log
-                            Out</a>
+                            class="btn btn-danger fw-bold align-items-end d-flex position-absolute bottom-0 mb-2">
+                            Log Out</a>
                     </div>
                 </div>
             </div>

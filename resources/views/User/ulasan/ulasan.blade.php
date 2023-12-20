@@ -42,15 +42,26 @@
             </div>
         @endauth
         <div class="col align-items-center-mt-4">
+            @if ($ulasan->isEmpty())
+                <div class="col-flex mt-4">
+                    <p class="text-center h5"><strong>Ulasan tidak ada</strong></p>
+                </div>
+            @endif
             @foreach ($ulasan as $item)
                 <div class="row-lg-flex row-md-flex rw-sm-flex mt-4">
                     <div class="card w-100 p-2">
                         <div class="card-body">
                             <div class="col d-flex m-2">
                                 <div class="me-auto d-flex align-items-center">
-                                    <img src="{{ asset('storage/profileUser/' . $item->user->photo) }}" alt=""
-                                        class="image-fluid rounded-circle" width="32" height="32"
-                                        style="object-fit: cover">
+                                    @if ($item->user->photo == null)
+                                        <img src="{{ asset('images/profilepic.png') }}" alt=""
+                                            class="image-fluid rounded-circle" width="32" height="32"
+                                            style="object-fit: cover">
+                                    @else
+                                        <img src="{{ asset('storage/profileUser/' . $item->user->photo) }}" alt=""
+                                            class="image-fluid rounded-circle" width="32" height="32"
+                                            style="object-fit: cover">
+                                    @endif
                                     <p class="ms-2 card-text fs-5">{{ $item->user->nama }}</p>
                                 </div>
                                 <p class="ms-2 card-text fs-6">{{ $item['tanggal'] }}</p>
@@ -127,7 +138,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-body align-content-center">
-                    <p>
+                    <p class="text-center mb-0">
                         Apakah Anda yakin ingin manghapus ulasan?
                     </p>
                 </div>
@@ -163,7 +174,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             $('.delete-button').on('click', function() {
                 var index = $(this).data('index');
-                console.log('Index:', index); // Add this line for debugging
+                console.log('Index:', index); // debug only
                 $('#indexUlasan').val(index);
             });
         });

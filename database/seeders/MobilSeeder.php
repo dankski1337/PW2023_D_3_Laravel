@@ -37,5 +37,17 @@ class MobilSeeder extends Seeder
             'status' => 'Tersedia',
             'created_at' => '2021-01-01 00:00:00',
         ]);
+        DB::table('mobils')->insert([
+            'gambar' => 'fortuner.png',
+            'model' => 'Toyota Fortuner',
+            'bahan_bakar' => 'Bensin',
+            'transmisi' => 'Manual',
+            'jumlah_kursi' => 7,
+            'tahun_produksi' => 2015,
+            'warna' => 'Putih',
+            'tarif' => 250000,
+            'status' => 'Tersedia',
+            'created_at' => '2021-01-01 00:00:00',
+        ]);
     }
 }

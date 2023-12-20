@@ -18,14 +18,14 @@ use App\Models\Ulasan;
 
 class AuthController extends Controller
 {
-    public function login(Request $request)
+    public function login()
     {
         if (Auth::check()) {
             $user = Auth::user();
             if ($user->role == 'customer') {
                 return redirect('/');
             } else {
-                // return redirect('/admin');
+                return redirect('/admin');
             }
         } else {
             return view('/login');

@@ -11,57 +11,109 @@
 
     <div class="container-details">
         {{-- <h1 class="fw-bold my-4 text-center">Log In</h1> --}}
-        <div class="container mt-4">
+        <div class="container my-4">
             <div class="row justify-content-center">
+                <h1 class="text-center"><strong>Edit Mobil</strong></h1>
                 <div class="col-lg-6 col-md-9 col-sm-flex mt-2">
+                    {{-- <div class="row mb-3">
+                        <a href="{{ route('data-mobil') }}" class=""><i class="fa fa-arrow-left"></i> Kembali ke Data Mobil</a>
+                    </div> --}}
                     <div class="card">
                         <div class="card-body p-5">
-                            <form class="mt-1">
+                            <form class="mt-1" method="POST" action="{{ route('action-edit-data-mobil', $mobil->id_mobil) }}" enctype="multipart/form-data">
+                                @csrf
+                                @method('PUT')
                                 <div class="mb-2">
-                                    <label for="registerModel" class="form-label">Model</label>
-                                    <input type="text" class="form-control" id="registerModel" name="registerModel" value="{{ $mobil['model'] }}" >
+                                    <label for="model" class="form-label">Model</label>
+                                    <input type="text" class="form-control @error('model') is-invalid @enderror" id="model" name="model" value="{{ $mobil['model'] }}">
+                                    @error('model')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="mb-2">
-                                    <label for="registerFoto" class="form-label">Foto</label>
-                                    <input type="file" class="form-control" id="registerFoto"
-                                        name="registerFoto" accept="image/*">
+                                    <label for="gambar" class="form-label">Gambar</label>
+                                    <input type="file" class="form-control @error('gambar') is-invalid @enderror" id="gambar"
+                                        name="gambar" accept="image/jpeg, image/png, image/jpg">
+                                    <small class="text-muted">Kosongkan jika tidak ingin merubah gambar</small>
+                                    @error('gambar')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="mb-2">
-                                    <label for="registerBahanBakar" class="form-label">Bahan Bakar</label>
-                                    <input value="{{ $mobil['bahan_bakar'] }}" type="text" class="form-control" id="registerBahanBakar" name="registerBahanBakar">
+                                    <label for="bahan_bakar" class="form-label">Bahan Bakar</label>
+                                    <input type="text" class="form-control @error('bahan_bakar') is-invalid @enderror" id="bahan_bakar" name="bahan_bakar" value="{{ $mobil['bahan_bakar'] }}">
+                                    @error('bahan_bakar')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="mb-2">
-                                    <label for="registerTransmisi" class="form-label">Transmisi</label>
-                                    <input value="{{ $mobil['transmisi'] }}" type="text" class="form-control" id="registerTransmisi" name="registerTransmisi">
-                                </div>
-                                <div class="mb-2">
-                                    <label for="registerKursi" class="form-label">Jumlah Kursi</label>
-                                    <input value="{{ $mobil['jumlah_kursi'] }}" type="number" class="form-control" id="registerKursi" name="registerKursi">
-                                </div>
-                                <div class="mb-2">
-                                    <label for="registerTahun" class="form-label">Tahun Produksi</label>
-                                    <input value="{{ $mobil['tahun_produksi'] }}" type="number" class="form-control" id="registerTahun" name="registerTahun">
-                                </div>
-                                <div class="mb-2">
-                                    <label for="registerWarna" class="form-label">Warna</label>
-                                    <input value="{{ $mobil['warna'] }}" type="text" class="form-control" id="registerWarna" name="registerWarna">
-                                </div>
-                                <div class="mb-2">
-                                    <label for="registerTarif" class="form-label">Tarif</label>
-                                    <input value="{{ $mobil['tarif'] }}" type="number" class="form-control" id="registerTarif" name="registerTarif">
-                                </div>
-                                <div class="mb-2">
-                                    <label for="registerStatus" class="form-label">Status</label>
-                                    <select name="registerStatus" id="registerStatus" class="form-select">
-                                        <option value="">Pilih Status</option>
-                                        <option value="Ready">Ready</option>
-                                        <option value="Tidak Ready">Tidak Ready</option>
+                                    <label for="transmisi" class="form-label">Transmisi</label>
+                                    {{-- <input type="text" class="form-control @error('transmisi') is-invalid @enderror" id="transmisi" name="transmisi"> --}}
+                                    <select class="form-select form-control @error('transmisi') is-invalid @enderror" id="transmisi" name="transmisi">
+                                        <option value="" selected disabled hidden>Pilih Transmisi</option>
+                                        <option value="Manual"
+                                            @if ($mobil['transmisi'] == "Manual")
+                                                selected
+                                            @endif
+                                        >Manual</option>
+                                        <option value="Automatic"
+                                            @if ($mobil['transmisi'] == "Automatic")
+                                                selected
+                                            @endif
+                                        >Automatic</option>
                                     </select>
+                                    @error('transmisi')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
-                                <div class="col-flex ms-auto col-md-flex col-sm-flex">
-                                    <a href="{{ url('/dataMobil') }}" type="button"
-                                        class="btn btn-primary btn-confirm btn-block px-5 fw-semibold">Simpan</a>
-                                    <a href="{{ url('/dataMobil') }}" type="button"
+                                <div class="mb-2">
+                                    <label for="jumlah_kursi" class="form-label">Jumlah Kursi</label>
+                                    <input type="number" class="form-control @error('jumlah_kursi') is-invalid @enderror" id="jumlah_kursi" name="jumlah_kursi" value="{{ $mobil['jumlah_kursi'] }}">
+                                    @error('jumlah_kursi')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="mb-2">
+                                    <label for="tahun_produksi" class="form-label">Tahun Produksi</label>
+                                    <input type="number" class="form-control @error('tahun_produksi') is-invalid @enderror" id="tahun_produksi" name="tahun_produksi" value="{{ $mobil['tahun_produksi'] }}">
+                                    @error('tahun_produksi')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="mb-2">
+                                    <label for="warna" class="form-label">Warna</label>
+                                    <input type="text" class="form-control @error('warna') is-invalid @enderror" id="warna" name="warna" value="{{ $mobil['warna'] }}">
+                                    @error('warna')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="mb-2">
+                                    <label for="tarif" class="form-label">Tarif</label>
+                                    <input type="number" class="form-control @error('tarif') is-invalid @enderror" id="tarif" name="tarif" value="{{ $mobil['tarif'] }}">
+                                    @error('tarif')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="col-flex ms-auto col-md-flex col-sm-flex text-end mt-4">
+                                    <button type="submit"
+                                        class="btn btn-primary btn-confirm btn-block px-5 fw-semibold" style="background-color: #003EB7">Simpan</button>
+                                    <a href="{{ route('data-mobil') }}" type="button"
                                         class="btn btn-danger btn-cancel btn-md btn-block px-5 fw-semibold">Batal</a>
                                 </div>
                             </form>

@@ -5,7 +5,7 @@
         .container-details {
             align-items: center;
             justify-content: center;
-            padding-top: 10%;
+            /* padding-top: 10%; */
         }
 
         .container-content {
@@ -17,13 +17,13 @@
         }
 
         /* .tombol {
-                text-align: center;
-                background-color: #001A4E;
-                pointer-events: none;
-            } */
+                    text-align: center;
+                    background-color: #001A4E;
+                    pointer-events: none;
+                } */
     </style>
 
-    <div class="container-details">
+    <div class="container-details my-5">
         <h1 class="mt-4 header fw-semibold">Selamat Datang Admin</h1>
         <div class="row align-items-center mt-2">
             <div class="col-lg-4 col-md-6 col-sm-flex mt-4">
@@ -64,7 +64,7 @@
             </div>
         </div>
         <div class="col mt-4">
-            <h3>Ulasan</h3>
+            <h3 class="fw-semibold">Ulasan User</h3>
             <div class="col align-items-center-mt-4">
                 @foreach ($ulasan as $item)
                     <div class="row-lg-flex row-md-flex rw-sm-flex mt-4">
@@ -72,9 +72,15 @@
                             <div class="card-body">
                                 <div class="col d-flex m-2">
                                     <div class="me-auto d-flex align-items-center">
-                                        <img src="{{ asset('storage/profileUser/' . $item->user->photo) }}" alt=""
-                                            class="image-fluid rounded-circle" width="32" height="32"
-                                            style="object-fit: cover">
+                                        @if ($item->user->photo == null)
+                                            <img src="{{ asset('images/profilepic.png') }}" alt=""
+                                                class="image-fluid rounded-circle" width="32" height="32"
+                                                style="object-fit: cover">
+                                        @else
+                                            <img src="{{ asset('storage/profileUser/' . $item->user->photo) }}"
+                                                alt="" class="image-fluid rounded-circle" width="32"
+                                                height="32" style="object-fit: cover">
+                                        @endif
                                         <p class="ms-2 card-text fs-5">{{ $item->user->nama }}</p>
                                     </div>
                                     <p class="ms-2 card-text fs-6">{{ $item['tanggal'] }}</p>

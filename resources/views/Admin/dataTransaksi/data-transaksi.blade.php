@@ -4,12 +4,18 @@
 
     <head>
         <title>
-            JogjaCar - Riwayat Transaksi
+            JogjaCar - Data Transaksi
         </title>
     </head>
 
+    <style>
+        .table-bordered {
+            border-style: hidden;
+        }
+    </style>
+
     <div class="container-details">
-        <h1 class="fw-bold my-4 text-center">Riwayat Transaksi</h1>
+        <h1 class="fw-bold my-4 text-center">Transaksi Rental</h1>
         @if (session('success'))
             <div class="alert alert-success mt-4 text-center" id="alerts">
                 <strong>{{ session('success') }}</strong>
@@ -24,13 +30,15 @@
             <div class="row justify-content-center">
                 <div class="col d-flex justify-content-between mb-3 px-0">
                     <div class="me-auto">
-                        <a href="" class="btn btn-primary">Tambah Transaksi</a>
+                        <a href="{{ route('tambah-data-transaksi') }}" class="btn btn-primary"
+                            style="background-color: #003EB7">Tambah Transaksi</a>
                     </div>
-                    <div class="d-flex justify-content-end">
+                    <div class="d-flex justify-content-end px-0">
                         <form class="d-flex" method="GET" action="{{ route('cari-data-transaksi') }}">
                             <input class="form-control me-2" type="search" placeholder="Cari Transaksi" name="cari"
                                 aria-label="Search" style="widht: 300px">
-                            <button class="btn btn-primary cariBtn" type="submit">Cari</button>
+                            <button class="btn btn-primary cariBtn" type="submit"
+                                style="background-color: #003EB7">Cari</button>
                         </form>
                     </div>
                 </div>
@@ -40,10 +48,10 @@
                             <div class="table-responsive overflow-x-auto">
                                 <table class="table table-bordered">
                                     <thead>
-                                        <tr>
+                                        <tr class="text-center">
                                             <th scope="col">ID</th>
                                             <th scope="col">User</th>
-                                            <th scope="col">Lokasi</th>
+                                            <th scope="col">Lokasi Ambil</th>
                                             <th scope="col">Tanggal Ambil</th>
                                             <th scope="col">Jam Ambil</th>
                                             <th scope="col">Tanggal Kembali</th>
@@ -69,18 +77,35 @@
                                                 <td>{{ $transaksi->mobil->model }} - {{ $transaksi->mobil->warna }}</td>
                                                 <td>Rp{{ $transaksi['denda'] }}</td>
                                                 <td>Rp{{ $transaksi['total_harga'] }}</td>
-                                                <td>{{ $transaksi['status'] }}</td>
+                                                <td
+                                                    @if ($transaksi['status'] == 'Belum Dibayar') class="text-danger fw-bold"
+                                                    @else
+                                                        class="text-success fw-bold" @endif>
+                                                    {{ $transaksi['status'] }}</td>
                                                 <td>{{ $transaksi['deadline_pembayaran'] }}</td>
-                                                <td>
-                                                    <div class="row">
-                                                        <div class="col text-center">
-                                                            <a href="{{ url('/editTransaksi') }}"
-                                                                class="btn btn-primary px-2">Edit</a>
-                                                        </div>
-                                                        <div class="col text-center">
-                                                            <a href="{{ url('/dataTransaksi') }}"
-                                                                class="btn btn-danger px-2">Delete</a>
-                                                        </div>
+                                                <td class="text-center">
+                                                    <div class="btn-group" role="group">
+                                                        <a href="{{ route('edit-data-transaksi', $transaksi->id_rental_transaksi) }}"
+                                                            class="btn btn-primary" style="background-color: #003EB7">
+                                                            <i class="fa fa-edit"></i>
+                                                        </a>
+                                                        <form id="updateStatusTransaksi" method="POST" action="{{ route('action-edit-status-data-transaksi', $transaksi->id_rental_transaksi) }}">
+                                                            @csrf
+                                                            @method('PUT')
+                                                            <input type="hidden" name="id_rental_transaksi" id="indexTransaksi">
+                                                        </form>
+                                                        @if ($transaksi['status'] == 'Belum Dibayar')
+                                                            <button type="button" class="btn btn-success edit-status-button" form="updateStatusTransaksi" data-index="{{ $transaksi->id_rental_transaksi }}">
+                                                                <i class="fa fa-check"></i>
+                                                            </button>
+                                                        @else
+                                                            <button type="button" class="btn btn-warning text-white edit-status-button" form="updateStatusTransaksi" data-index="{{ $transaksi->id_rental_transaksi }}">
+                                                                <i class="fa fa-times"></i>
+                                                            </button>
+                                                        @endif
+                                                        <button type="button" class="btn btn-danger delete-button" data-bs-toggle="modal" data-bs-target="#confirmDelete" data-index="{{ $transaksi->id_rental_transaksi }}">
+                                                            <i class="fa fa-trash"></i>
+                                                        </button>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -105,6 +130,29 @@
         </div>
     </div>
 
+    {{-- modal confirm delete --}}
+    <div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="confimDeleteTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body align-content-center">
+                    <p class="text-center mb-0">
+                        Apakah Anda yakin ingin manghapus transaksi ini?
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                    <form action="{{ route('delete-data-transaksi', $transaksi->id_rental_transaksi) }}" method="post" class="d-inline">
+                        @csrf
+                        @method('DELETE')
+                        <input type="hidden" name="id_rental_transaksi" id="indexTransaksiHapus">
+                        <button type="submit" class="btn btn-danger">Ya</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         setTimeout(function() {
             var alert = document.getElementById('alerts');
@@ -117,5 +165,26 @@
                 }, 500);
             }
         }, 3500);
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            $('.edit-status-button').on('click', function() {
+                var index = $(this).data('index');
+                console.log('Index:', index); // debug only
+                $('#indexTransaksi').val(index);
+                $('#updateStatusTransaksi').submit();
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            $('.delete-button').on('click', function() {
+                var index = $(this).data('index');
+                console.log('Index:', index); // debug only
+                $('#indexTransaksiHapus').val(index);
+            });
+        });
     </script>
 @endsection

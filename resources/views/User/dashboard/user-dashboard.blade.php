@@ -200,7 +200,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-body align-content-center">
-                            <p>
+                            <p class="text-center mb-0">
                                 Apakah Anda yakin ingin keluar?
                             </p>
                         </div>
