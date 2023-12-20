@@ -7,7 +7,7 @@
 
 ### Username dan Pass untuk login
 - User
-    - Useranme : c
+    - Username : c
     - Pass : cccccc
 - Admin
     - Username : admin123
