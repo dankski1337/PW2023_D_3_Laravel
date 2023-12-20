@@ -49,7 +49,7 @@
                             <th scope="row">{{ $loop->index + 1 }}</th>
                             <th scope="row">{{ $item['id_rental_transaksi'] }}</th>
                             <td>{{ $item->mobil->model }} {{ $item->mobil->tahun_produksi }} -
-                                {{ $item->mobil->tahun_produksi }}</td>
+                                {{ $item->mobil->warna }}</td>
                             <td class="fw-bold">Rp{{ $item['total_harga'] }}</td>
                             <td>
                                 @if ($item['status'] == 'Belum Dibayar')
