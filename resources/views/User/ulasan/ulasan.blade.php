@@ -9,7 +9,6 @@
     </head>
 
     <style>
-    /* Gaya Kartu Ulasan */
     .testimonial-card {
         border: none;
         border-radius: 15px;
@@ -26,21 +25,19 @@
 
     .testimonial-card blockquote {
         padding: 20px;
-        height: 100%; /* Sesuaikan tinggi dengan kebutuhan desain */
+        height: 100%; 
         margin: 0;
-        border-left: 12px solid #003EB7; /* Warna batas kiri */
+        border-left: 12px solid #003EB7; 
         display: flex;
-        align-items: center; /* Menengahkan isi dalam blockquote */
+        align-items: center; 
     }
 
     .testimonial-card blockquote p {
-        margin: 0; /* Hapus margin default */
+        margin: 0; 
     }
 
- 
     .testimonial-card .v-card {
         padding: 40px;
-        /* background-color: #f9f9f9; */
     } 
 
     .testimonial-card img {
@@ -48,7 +45,7 @@
         height: 60px;
         border-radius: 50%;
         object-fit: cover;
-        border: 1px solid #fff; /* Warna pinggiran foto */
+        border: 1px solid #fff; 
     }
 
     .testimonial-card .author-name {
@@ -58,7 +55,7 @@
     .testimonial-card .author-name span {
         display: block;
         font-weight: bold;
-        color: #003EB7; /* Warna nama pengguna */
+        color: #003EB7; 
     }
 
     .rating {
@@ -93,7 +90,7 @@
                 <strong>{{ session('success') }}</strong>
             </div>
         @endif
-
+        
         @if (session('error'))
             <div class="alert alert-danger mt-4 text-center" id="alerts">
                 <strong>{{ session('error') }}</strong>
