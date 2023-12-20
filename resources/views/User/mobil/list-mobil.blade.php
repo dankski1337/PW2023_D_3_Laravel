@@ -15,14 +15,57 @@
             background-color: #003EB7;
             color: white;
         }
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
 
-        .mobil-pic {
-            border-radius: 10px;
-            display: block;
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-body {
+            /* padding: 20px; */
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .card-img {
+            border-radius: 15px 15px 0 0;
             height: 200px;
-            max-width: 100%;
-            object-fit: cover;
-            margin: auto;
+            width: 100%;
+            object-fit: contain;
+        }
+
+        .card-details {
+            margin-top: 15px;
+        }
+
+        .card-details table {
+            width: 100%;
+        }
+
+        .card-details td {
+            padding: 8px 0;
+        }
+
+        .card-details td:first-child {
+            font-weight: bold;
+            width: 40%;
+        }
+
+        .card-details td:last-child {
+            text-align: right;
+            width: 60%;
         }
     </style>
 
@@ -41,43 +84,39 @@
             @foreach ($mobil as $item)
                 @if ($item['status'] == 'Tersedia')
                     <div class="col-lg-4 col-md-6 col-sm-flex mt-4">
-                        <div class="card w-100 py-2 px-2">
-                            <div class="card-body">
-                                <p class="text-center h5"><strong>{{ $item['model'] }}</strong></p>
-                                <img src="{{ asset('storage/mobil/' . $item['gambar']) }}" alt="gambar mobil"
-                                    class="text-center mobil-pic">
-                                <table class="my-2 table table-borderless">
-                                    <tr class="mb-0">
-                                        <td>Bahan Bakar</td>
-                                        <td class="text-start">:</td>
-                                        <td class="text-end">{{ $item['bahan_bakar'] }}</td>
-                                    </tr>
-                                    <tr class="my-0">
-                                        <td>Transmisi</td>
-                                        <td class="text-start">:</td>
-                                        <td class="text-end">{{ $item['transmisi'] }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jumlah Kursi</td>
-                                        <td class="text-start">:</td>
-                                        <td class="text-end">{{ $item['jumlah_kursi'] }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tahun Produksi</td>
-                                        <td class="text-start">:</td>
-                                        <td class="text-end">{{ $item['tahun_produksi'] }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Warna</td>
-                                        <td class="text-start">:</td>
-                                        <td class="text-end">{{ $item['warna'] }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tarif</td>
-                                        <td class="text-start">:</td>
-                                        <td class="text-end">Rp{{ $item['tarif'] }}/hari</td>
-                                    </tr>
-                                </table>
+                        <div class="card p-4">
+                            <img src="{{ asset('storage/mobil/' . $item['gambar']) }}" alt="gambar mobil"
+                                class="card-img">
+                            <div class="card-body pb-0">
+                                <p class="card-title">{{ $item['model'] }}</p>
+                                <div class="card-details">
+                                    <table>
+                                        <tr>
+                                            <td>Bahan Bakar</td>
+                                            <td>{{ $item['bahan_bakar'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Transmisi</td>
+                                            <td>{{ $item['transmisi'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Jumlah Kursi</td>
+                                            <td>{{ $item['jumlah_kursi'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tahun Produksi</td>
+                                            <td>{{ $item['tahun_produksi'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Warna</td>
+                                            <td>{{ $item['warna'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tarif</td>
+                                            <td>Rp{{ $item['tarif'] }}/hari</td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>

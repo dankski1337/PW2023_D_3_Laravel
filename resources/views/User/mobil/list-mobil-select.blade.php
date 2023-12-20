@@ -53,8 +53,12 @@
             display: block;
             height: 200px;
             max-width: 100%;
-            object-fit: cover;
+            object-fit: contain;
             margin: auto;
+        }
+
+        .table td:first-child {
+            font-weight: bold;
         }
 
         .btn-select {
@@ -94,38 +98,32 @@
                         <div class="col-lg-4 col-md-6 col-sm-flex mt-4">
                             <div class="card w-100 py-2 px-2">
                                 <div class="card-body">
-                                    <p class="text-center h5"><strong>{{ $item['model'] }}</strong></p>
                                     <img src="{{ asset('storage/mobil/' . $item['gambar']) }}" alt="gambar mobil"
-                                        class="text-center mobil-pic">
+                                    class="text-center mobil-pic">
+                                    <p class="text-center card-title" style="font-size: 1.5rem;"><strong>{{ $item['model'] }}</strong></p>
                                     <table class="my-2 table table-borderless">
                                         <tr class="mb-0">
                                             <td>Bahan Bakar</td>
-                                            <td class="text-start">:</td>
                                             <td class="text-end">{{ $item['bahan_bakar'] }}</td>
                                         </tr>
                                         <tr class="my-0">
                                             <td>Transmisi</td>
-                                            <td class="text-start">:</td>
                                             <td class="text-end">{{ $item['transmisi'] }}</td>
                                         </tr>
                                         <tr>
                                             <td>Jumlah Kursi</td>
-                                            <td class="text-start">:</td>
                                             <td class="text-end">{{ $item['jumlah_kursi'] }}</td>
                                         </tr>
                                         <tr>
                                             <td>Tahun Produksi</td>
-                                            <td class="text-start">:</td>
                                             <td class="text-end">{{ $item['tahun_produksi'] }}</td>
                                         </tr>
                                         <tr>
                                             <td>Warna</td>
-                                            <td class="text-start">:</td>
                                             <td class="text-end">{{ $item['warna'] }}</td>
                                         </tr>
                                         <tr>
                                             <td>Tarif</td>
-                                            <td class="text-start">:</td>
                                             <td class="text-end">Rp{{ $item['tarif'] }}/hari</td>
                                         </tr>
                                     </table>
