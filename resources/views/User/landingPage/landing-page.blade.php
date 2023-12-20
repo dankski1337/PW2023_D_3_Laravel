@@ -25,10 +25,9 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            backdrop-filter: brightness(0.9);
             height: 100%;
-            overflow-x: hidden;
             height: 100vh;
+            background-color: #F8F7FC;
         }
 
         .judul {
@@ -49,10 +48,6 @@
             background-position: center;
         }
 
-        /* .header {
-                    font-family: 'Poppins', sans-serif;
-                } */
-
         .tombol {
             text-align: center;
             background-color: #003EB7;
@@ -63,20 +58,6 @@
             pointer-events: none;
         }
 
-        .container-image {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 0;
-        }
-
-        .container-item {
-            text-align: center;
-            justify-content: center;
-        }
 
         .container-detail p {
             color: #ffffff;
@@ -187,102 +168,103 @@
         </form>
 
         <p class="text-white" style="font-style: italic; opacity: 80%;">*Jam operasional JogjaCar adalah 06:00-21:00</p>
-    </div>
 
-    <div class="site-section mt-5">
-        <div class="container">
-            <h2 class="section-heading text-white" style="text-shadow: 1px 1px 4px #000000a3">
-                <strong>Cara Pemesanan</strong>
-            </h2>
-            <p class="mb-5 text-white" style="text-shadow: 1px 1px 4px #000000a3">
-                Langkah yang mudah untuk menyewa mobil.
-            </p>
-            <div class="row mb-5">
-                <div class="col-lg-4 mb-4 mb-lg-0 mb-lg-4">
-                    <div class="step">
-                        <span>1</span>
-                        <div class="step-inner">
-                            <span class="number text-primary">01.</span>
-                            <h3>Login</h3>
-                            <p>
-                                Login akun agar dapat melakukan rental. Jika tidak mempunyai akun, dapat melakukan
-                                register akun terlebih dahulu.
-                            </p>
+        <div class="site-section mt-5">
+            <div class="container">
+                <h2 class="section-heading text-white" style="text-shadow: 1px 1px 4px #000000a3">
+                    <strong>Cara Pemesanan</strong>
+                </h2>
+                <p class="mb-5 text-white" style="text-shadow: 1px 1px 4px #000000a3">
+                    Langkah yang mudah untuk menyewa mobil.
+                </p>
+                <div class="row mb-5">
+                    <div class="col-lg-4 mb-4 mb-lg-0 mb-lg-4">
+                        <div class="step">
+                            <span>1</span>
+                            <div class="step-inner">
+                                <span class="number text-primary">01.</span>
+                                <h3>Login</h3>
+                                <p>
+                                    Login akun agar dapat melakukan rental. Jika tidak mempunyai akun, dapat melakukan
+                                    register akun terlebih dahulu.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4 mb-lg-0 mb-lg-4">
+                        <div class="step">
+                            <span>2</span>
+                            <div class="step-inner">
+                                <span class="number text-primary">02.</span>
+                                <h3>Isi Rental</h3>
+                                <p>
+                                    Pilih lokasi pengambilan, tanggal pengambilan, jam pengambilan, tanggal pengembalian,
+                                    jam pengembalian. Setelah itu klik tombol "Lanjutkan" untuk memilih mobil.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4 mb-lg-0 mb-lg-4">
+                        <div class="step">
+                            <span>3</span>
+                            <div class="step-inner">
+                                <span class="number text-primary">03.</span>
+                                <h3>Pilih Mobil</h3>
+                                <p>
+                                    Pilih mobil rental yang tersedia.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4 mb-lg-0 mb-lg-4">
+                        <div class="step">
+                            <span>4</span>
+                            <div class="step-inner">
+                                <span class="number text-primary">04.</span>
+                                <h3>Konfirmasi Rental</h3>
+                                <p>
+                                    Konfirmasi rental anda, jika sudah yakin klik tombol "Simpan."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4 mb-lg-0 mb-lg-4">
+                        <div class="step">
+                            <span>5</span>
+                            <div class="step-inner">
+                                <span class="number text-primary">05.</span>
+                                <h3>Pembayaran</h3>
+                                <p>
+                                    Lakukan pembayaran sebelum deadline yang telah ditentukan.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 mb-4 mb-lg-0 mb-lg-4">
-                    <div class="step">
-                        <span>2</span>
-                        <div class="step-inner">
-                            <span class="number text-primary">02.</span>
-                            <h3>Isi Rental</h3>
-                            <p>
-                                Pilih lokasi pengambilan, tanggal pengambilan, jam pengambilan, tanggal pengembalian,
-                                jam pengembalian. Setelah itu klik tombol "Lanjutkan" untuk memilih mobil.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-4 mb-lg-0 mb-lg-4">
-                    <div class="step">
-                        <span>3</span>
-                        <div class="step-inner">
-                            <span class="number text-primary">03.</span>
-                            <h3>Pilih Mobil</h3>
-                            <p>
-                                Pilih mobil rental yang tersedia.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-4 mb-lg-0 mb-lg-4">
-                    <div class="step">
-                        <span>4</span>
-                        <div class="step-inner">
-                            <span class="number text-primary">04.</span>
-                            <h3>Konfirmasi Rental</h3>
-                            <p>
-                                Konfirmasi rental anda, jika sudah yakin klik tombol "Simpan."
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-4 mb-lg-0 mb-lg-4">
-                    <div class="step">
-                        <span>5</span>
-                        <div class="step-inner">
-                            <span class="number text-primary">05.</span>
-                            <h3>Pembayaran</h3>
-                            <p>
-                                Lakukan pembayaran sebelum deadline yang telah ditentukan.
-                            </p>
-                        </div>
+            </div>
+        </div>
+
+        <div class="site-section">
+            <div class="container rounded p-0">
+                <div class="row align-items-center">
+                    <div class="col-lg-12 ml-auto order-lg-1">
+                        <h3 class="mb-4 section-heading text-white" style="text-shadow: 1px 1px 4px #000000a3">
+                            <strong>Kami berkomitmen untuk memberikan pelayanan terbaik kepada Pelanggan</strong>
+                        </h3>
+                        <p class="mb-4 text-white" style="text-shadow: 1px 1px 4px #000000a3">
+                            JogjaCar merupakan pilihan utama dalam rental mobil di Yogyakarta karena komitmennya
+                            terhadap kualitas terbaik dalam layanan. Dengan armada mobil yang selalu terjaga, staf
+                            yang profesional dan ramah, serta transparansi dalam biaya dan prosedur sewa, JogjaCar
+                            telah membangun reputasi yang kokoh sebagai penyedia layanan terbaik yang memberikan pengalaman
+                            menyewa mobil yang tak tertandingi di Yogyakarta.
+                        </p>
+                        <p><a href="{{ url('/kontak') }}" class="btn btn-primary">Kontak Kami</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="site-section">
-        <div class="container rounded p-0">
-            <div class="row align-items-center">
-                <div class="col-lg-12 ml-auto order-lg-1">
-                    <h3 class="mb-4 section-heading text-white" style="text-shadow: 1px 1px 4px #000000a3">
-                        <strong>Kami berkomitmen untuk memberikan pelayanan terbaik kepada Pelanggan</strong>
-                    </h3>
-                    <p class="mb-4 text-white" style="text-shadow: 1px 1px 4px #000000a3">
-                        JogjaCar merupakan pilihan utama dalam rental mobil di Yogyakarta karena komitmennya
-                        terhadap kualitas terbaik dalam layanan. Dengan armada mobil yang selalu terjaga, staf
-                        yang profesional dan ramah, serta transparansi dalam biaya dan prosedur sewa, JogjaCar
-                        telah membangun reputasi yang kokoh sebagai penyedia layanan terbaik yang memberikan pengalaman
-                        menyewa mobil yang tak tertandingi di Yogyakarta.
-                    </p>
-                    <p><a href="{{ url('/kontak') }}" class="btn btn-primary">Kontak Kami</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script src="js/jquery-3.3.1.min.js"></script>
     {{-- <script src="js/popper.min.js"></script> --}}

@@ -209,6 +209,7 @@
                     </div>
                 </div>
             </div>
+            
         @endauth
         <div class="content-wrapper">
             <div class="container">
