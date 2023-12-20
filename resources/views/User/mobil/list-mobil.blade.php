@@ -29,7 +29,7 @@
         }
 
         .card-body {
-            padding: 20px;
+            /* padding: 20px; */
         }
 
         .card-title {
@@ -43,7 +43,7 @@
             border-radius: 15px 15px 0 0;
             height: 200px;
             width: 100%;
-            object-fit: cover;
+            object-fit: contain;
         }
 
         .card-details {
@@ -84,10 +84,10 @@
             @foreach ($mobil as $item)
                 @if ($item['status'] == 'Tersedia')
                     <div class="col-lg-4 col-md-6 col-sm-flex mt-4">
-                        <div class="card">
+                        <div class="card p-4">
                             <img src="{{ asset('storage/mobil/' . $item['gambar']) }}" alt="gambar mobil"
                                 class="card-img">
-                            <div class="card-body">
+                            <div class="card-body pb-0">
                                 <p class="card-title">{{ $item['model'] }}</p>
                                 <div class="card-details">
                                     <table>

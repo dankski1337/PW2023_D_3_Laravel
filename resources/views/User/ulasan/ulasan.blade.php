@@ -9,80 +9,81 @@
     </head>
 
     <style>
-    .testimonial-card {
-        border: none;
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease-in-out;
-        background-color: #fff;
-        margin-bottom: 20px;
-    }
+        .testimonial-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            background-color: #fff;
+            margin-bottom: 20px;
+        }
 
-    .testimonial-card:hover {
-        transform: translateY(-5px);
-    }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
 
-    .testimonial-card blockquote {
-        padding: 20px;
-        height: 100%; 
-        margin: 0;
-        border-left: 12px solid #003EB7; 
-        display: flex;
-        align-items: center; 
-    }
+        .testimonial-card blockquote {
+            padding: 20px;
+            height: 100%;
+            margin: 0;
+            border-left: 12px solid #003EB7;
+            display: flex;
+            align-items: center;
+        }
 
-    .testimonial-card blockquote p {
-        margin: 0; 
-    }
+        .testimonial-card blockquote p {
+            margin: 0;
+        }
 
-    .testimonial-card .v-card {
-        padding: 40px;
-    } 
+        .testimonial-card .v-card {
+            /* padding: 40px; */
+        }
 
-    .testimonial-card img {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 1px solid #fff; 
-    }
+        .testimonial-card img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid #fff;
+        }
 
-    .testimonial-card .author-name {
-        margin-left: 4px;
-    }
+        .testimonial-card .author-name {
+            /* margin-left: 4px; */
+        }
 
-    .testimonial-card .author-name span {
-        display: block;
-        font-weight: bold;
-        color: #003EB7; 
-    }
+        .testimonial-card .author-name span {
+            display: block;
+            font-weight: bold;
+            color: #003EB7;
+        }
 
-    .rating {
-        margin-top: 10px;
-    }
+        .rating {
+            margin-top: 10px;
+        }
 
-    .rating p {
-        display: inline-block;
-        padding: 5px 10px;
-        border-radius: 20px;
-        font-weight: bold;
-    }
+        .rating p {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
 
-    .delete-button {
-        border: none;
-        background: none;
-        cursor: pointer;
-        outline: none;
-        font-size: 18px;
-    }
+        .delete-button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            outline: none;
+            font-size: 18px;
+        }
 
-    .delete-button:hover {
-        color: red;a
-    }
-</style>
+        .delete-button:hover {
+            color: red;
+            a
+        }
+    </style>
 
-<div class="container-details">
+    <div class="container-details">
         <h1 class="fw-bold my-4 text-center">Ulasan</h1>
 
         @if (session('success'))
@@ -90,7 +91,7 @@
                 <strong>{{ session('success') }}</strong>
             </div>
         @endif
-        
+
         @if (session('error'))
             <div class="alert alert-danger mt-4 text-center" id="alerts">
                 <strong>{{ session('error') }}</strong>
@@ -115,40 +116,49 @@
                 </div>
             @endif
 
-            <div class="container">
+            <div class="container mt-4 px-0">
                 <div class="row">
                     @foreach ($ulasan as $item)
                         <div class="col-lg-4 mb-4">
-                            <div class="testimonial-card">
-                            <div class="rating d-flex justify-content-between align-items-center">
-                                <p class="@if ($item['rating'] == 'Baik') text-success @elseif ($item['rating'] == 'Cukup') text-warning @else text-danger @endif fw-bold">{{ $item['rating'] }}</p>
-                                
-                                @auth
-                                    @if ($item['id_user'] == Auth::user()->id_user)
-                                        <button type="button" class="btn delete-button" data-bs-toggle="modal"
-                                            data-bs-target="#confirmDelete" data-index="{{ $item->id_ulasan }}">
-                                            <i class="fa fa-trash" style="color: red"></i>
-                                        </button>
-                                    @endif
-                                @endauth
-                            </div>
-
+                            <div class="testimonial-card p-4">
                                 <div class="d-flex v-card align-items-center">
                                     @if ($item->user->photo == null)
                                         <img src="{{ asset('images/profilepic.png') }}" alt="Image"
                                             class="img-fluid rounded-circle" width="60" height="60"
                                             style="object-fit: cover">
                                     @else
-                                        <img src="{{ asset('storage/profileUser/' . $item->user->photo) }}"
-                                            alt="Image" class="img-fluid rounded-circle" width="60" height="60"
+                                        <img src="{{ asset('storage/profileUser/' . $item->user->photo) }}" alt="Image"
+                                            class="img-fluid rounded-circle" width="60" height="60"
                                             style="object-fit: cover">
                                     @endif
-
                                     <div class="author-name">
-                                        <span>{{ $item->user->nama }}</span>
+                                        <div class="row">
+                                            <div class="col ms-2 d-flex align-items-center">
+                                                <span>{{ $item->user->nama }}</span>
+                                            </div>
+                                            <div class="col p-0 d-flex align-items-center">
+                                                <p class="card-text text-muted">{{ $item['tanggal'] }}</p>
+                                            </div>
+                                            <div class="col ms-auto justify-content-end">
+                                                @auth
+                                                    @if ($item['id_user'] == Auth::user()->id_user)
+                                                        <button type="button" class="btn delete-button" data-bs-toggle="modal"
+                                                            data-bs-target="#confirmDelete" data-index="{{ $item->id_ulasan }}">
+                                                            <i class="fa fa-trash" style="color: red"></i>
+                                                        </button>
+                                                    @endif
+                                                @endauth
+                                            </div>
+                                        </div>
                                     </div>
-                                    <p class="ms-auto card-text fs-6">{{ $item['tanggal'] }}</p>
                                 </div>
+                                <div class="rating d-flex justify-content-between align-items-center">
+                                    <p
+                                        class="@if ($item['rating'] == 'Baik') text-success @elseif ($item['rating'] == 'Cukup') text-warning @else text-danger @endif fw-bold">
+                                        {{ $item['rating'] }}</p>
+                                </div>
+
+
                                 <blockquote>
                                     <p>{{ $item['ulasan'] }}</p>
                                 </blockquote>
@@ -187,8 +197,7 @@
                         </div>
                         <div class="form-group mb-2">
                             <label for="ulasan">Ulasan</label>
-                            <textarea class="form-control" id="ulasan" rows="3" name="ulasan"
-                                style="min-height: 100px;"></textarea>
+                            <textarea class="form-control" id="ulasan" rows="3" name="ulasan" style="min-height: 100px;"></textarea>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
@@ -222,20 +231,20 @@
     </div>
 
     <script>
-        setTimeout(function () {
+        setTimeout(function() {
             var alert = document.getElementById('alerts');
             if (alert) {
                 alert.style.transition = 'opacity 0.5s';
                 alert.style.opacity = 0;
 
-                setTimeout(function () {
+                setTimeout(function() {
                     alert.remove();
                 }, 500);
             }
         }, 3500);
 
-        document.addEventListener('DOMContentLoaded', function () {
-            $('.delete-button').on('click', function () {
+        document.addEventListener('DOMContentLoaded', function() {
+            $('.delete-button').on('click', function() {
                 var index = $(this).data('index');
                 console.log('Index:', index); // debug only
                 $('#indexUlasan').val(index);
