@@ -5,6 +5,13 @@
 - Simon Andrian Agis (210711401)
 - Azegdita Vanaya Lerik (210711439)
 
+### Yang harus dilakukan setelah clone (ga dihosting soalnya)
+- composer install
+- buat .env
+- php artisan key:generate
+- php artisan storage:link
+- php artisan serve
+
 ### Username dan Pass untuk login
 - User
     - Username : c
